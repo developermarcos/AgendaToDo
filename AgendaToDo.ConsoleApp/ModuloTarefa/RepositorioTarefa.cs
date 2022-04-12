@@ -13,5 +13,31 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
             return base.Editar(numeroEdicao, tarefa);
         }
+
+        public List<Tarefa> ObterTarefasPendentes()
+        {
+            List<Tarefa> tarefasPedentes = new List<Tarefa>();
+
+            foreach (Tarefa tarefa in registros)
+            {
+                if (!tarefa.EstaConcluida())
+                    tarefasPedentes.Add(tarefa);
+            }
+
+            return tarefasPedentes;
+        }
+
+        public List<Tarefa> ObterTarefasConcluidas()
+        {
+            List<Tarefa> tarefasConcluidas = new List<Tarefa>();
+
+            foreach (Tarefa tarefa in registros)
+            {
+                if (tarefa.EstaConcluida())
+                    tarefasConcluidas.Add(tarefa);
+            }
+
+            return tarefasConcluidas;
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace AgendaToDo.ConsoleApp.Compartilhado
 
             telaContato.PopularContatos();
             telaCompromisso.PopularCompromissos();
+            telaTarefa.PopularTarefas();
         }
 
         public string MostrarOpcoes()

@@ -1,6 +1,7 @@
 ﻿using AgendaToDo.ConsoleApp.Compartilhado;
 using AgendaToDo.ConsoleApp.ModuloCompromisso;
 using AgendaToDo.ConsoleApp.ModuloContato;
+using AgendaToDo.ConsoleApp.ModuloTarefa;
 using System;
 
 namespace AgendaToDo.ConsoleApp
@@ -45,7 +46,7 @@ namespace AgendaToDo.ConsoleApp
 
                 Console.ReadKey();
             }
-            else if (telaSelecionada is TelaContato)//VizualizarOrdenadoCargo
+            else if (telaSelecionada is TelaContato)//Contato
             {
                 TelaContato telaContato = (TelaContato)telaSelecionada;
                 if (opcaoSelecionada == "5")
@@ -57,8 +58,8 @@ namespace AgendaToDo.ConsoleApp
 
                     Console.ReadKey();
                 }
-            }
-            else if (telaSelecionada is TelaCompromisso)//VizualizarOrdenadoCargo
+            }//Contato
+            else if (telaSelecionada is TelaCompromisso)//Compromisso
             {
                 TelaCompromisso telaCompromisso = (TelaCompromisso)telaSelecionada;
                 if (opcaoSelecionada == "5")
@@ -97,7 +98,33 @@ namespace AgendaToDo.ConsoleApp
 
                     Console.ReadKey();
                 }
-            }
+            }//Compromisso
+            else if (telaSelecionada is TelaTarefa)//Tarefa
+            {
+                TelaTarefa telaTarefa = (TelaTarefa)telaSelecionada;
+                if (opcaoSelecionada == "5")
+                {
+                    telaTarefa.EditarItensTarefa();
+                }
+                else if (opcaoSelecionada == "6")
+                {
+                    bool temRegistros = telaTarefa.VisualizarTarefasPendentes("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+                else if (opcaoSelecionada == "7")
+                {
+                    bool temRegistros = telaTarefa.VisualizarTarefasConcluidas("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+            }//Tarefa
         }
     }
 }

@@ -54,5 +54,13 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             return mensagem;
         }
 
+        public bool EstaConcluida()
+        {
+            if (ObterPercentual() == 100)
+                return true;
+
+            return false;
+        }
+
     }
 }

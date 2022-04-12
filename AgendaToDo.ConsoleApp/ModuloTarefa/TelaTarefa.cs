@@ -16,6 +16,27 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             this.repositorioTarefa = repositorioTarefa;
         }
 
+        public override string ApresentarMenu()
+        {
+            string opcaoSelecionada;
+
+            MostrarTitulo(this.titulo);
+
+            Console.WriteLine("Digite 1 para Cadastrar");
+            Console.WriteLine("Digite 2 para Editar");
+            Console.WriteLine("Digite 3 para Excluir");
+            Console.WriteLine("Digite 4 para Visualizar");
+            Console.WriteLine("Digite 5 para Editar itens");
+            Console.WriteLine("Digite 6 para Visualizar pendentes");
+            Console.WriteLine("Digite 7 para Visualizar finalizadas");
+            
+            Console.WriteLine("Digite s para sair");
+
+            opcaoSelecionada = Console.ReadLine();
+
+            return opcaoSelecionada;
+        }
+
         public void EditarRegistro()
         {
             MostrarTitulo("Editando nova tarefa");
@@ -95,6 +116,92 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             return true;
         }
 
+        public void EditarItensTarefa()
+        {
+            MostrarTitulo("Editando itens da tarefa");
+
+            bool temTarefaCadastrada = VisualizarRegistros("Pesquisando");
+
+            if (!temTarefaCadastrada)
+            {
+                notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
+                return;
+            }
+
+            int idTarefa = ObterNumeroTarefa();
+
+            Tarefa tarefaAtualizada = ObterNovasPorcentagens(idTarefa);
+
+            string mensagemValidacao = repositorioTarefa.Editar(idTarefa, tarefaAtualizada);
+
+            if (mensagemValidacao == "REGISTRO_VALIDO")
+                notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
+
+            else
+                notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
+        }
+
+        public bool VisualizarTarefasPendentes(string tipoVisualizado)
+        {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de Tarefa pendentes");
+
+            List<Tarefa> tarefas = repositorioTarefa.ObterTarefasPendentes();
+
+            if (tarefas.Count == 0)
+                return false;
+
+            foreach (Tarefa tarefa in tarefas)
+            {
+                Console.WriteLine(tarefa.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
+        }
+
+        public bool VisualizarTarefasConcluidas(string tipoVisualizado)
+        {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de Tarefa pendentes");
+
+            List<Tarefa> tarefas = repositorioTarefa.ObterTarefasConcluidas();
+
+            if (tarefas.Count == 0)
+                return false;
+
+            foreach (Tarefa tarefa in tarefas)
+            {
+                Console.WriteLine(tarefa.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
+        }
+
+
+        public void PopularTarefas()
+        {
+            Item item1 = new Item(1, "Cadastro tela", 0);
+            Item item2 = new Item(2, "Cadastro tela", 5);
+            
+            DateTime inicio = new DateTime(2022,04,20);
+            DateTime fim = new DateTime(2022, 04, 25);
+
+            List<Item> itens = new List<Item>();
+            itens.Add(item1);
+            itens.Add(item2);
+
+            Tarefa tarefa1 = new Tarefa(Prioridade.Media, "Cadastro compromisso", inicio, fim, itens);
+            Tarefa tarefa2 = new Tarefa(Prioridade.Media, "Cadastro tarefa", inicio, fim, itens);
+            Tarefa tarefa3 = new Tarefa(Prioridade.Media, "Cadastro contato", inicio, fim, itens);
+
+            repositorioTarefa.Inserir(tarefa1);
+            repositorioTarefa.Inserir(tarefa2);
+            repositorioTarefa.Inserir(tarefa3);
+        }
 
         #region métodos privados
 
@@ -184,6 +291,45 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             }
 
             return itens;
+        }
+
+        private Tarefa ObterNovasPorcentagens(int idTarefa)
+        {
+
+            Tarefa tarefa = repositorioTarefa.ObterRegistro(idTarefa);
+
+            foreach (Item item in tarefa.itens)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            List<Item> itensAtualizados = new List<Item>();
+
+            for (int i = 0; i < tarefa.itens.Count; i++)
+            {
+                decimal percentual; 
+                Item item = new Item();
+                while (true)
+                {
+                    Console.Write("\nInforme a porcentagem de "+ tarefa.itens[i].descricao + ": ");
+                    string lerTela = Console.ReadLine();
+                    bool conversaoRealizada = Decimal.TryParse(lerTela, out percentual);
+                    if (conversaoRealizada)
+                    {
+                        item.Percentual = Convert.ToDecimal(lerTela);
+                        break;
+                    }
+
+                    notificador.ApresentarMensagem("Porcentagem invalida, tente novamente", TipoMensagem.Erro);
+                }
+                item.descricao = tarefa.itens[i].descricao;
+                
+                itensAtualizados.Add(item);
+            }
+
+            tarefa.itens = itensAtualizados;
+
+            return tarefa;
         }
 
         #endregion
