@@ -28,15 +28,23 @@ namespace AgendaToDo.ConsoleApp.Compartilhado
             return mensagemValidacao;
         }
 
-        public virtual void Editar(int numeroEdicao, T item)
+        public virtual string Editar(int numeroEdicao, T item)
         {
-            T registro = registros.Find(x => x.numero == numeroEdicao);
+            T registro = ObterRegistro(numeroEdicao);
 
-            registros.Remove(registro);
+            string mensagem = item.Validar();
+            if (mensagem == "REGISTRO_VALIDO")
+            {
+                registros.Remove(registro);
 
-            item.numero = numeroEdicao;
+                item.numero = numeroEdicao;
 
-            registros.Add(item);
+                registros.Add(item);
+
+                return mensagem;
+            }
+
+            return mensagem;
         }
 
         public virtual bool Excluir(int numeroExclusao)

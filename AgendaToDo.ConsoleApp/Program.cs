@@ -1,4 +1,5 @@
 ﻿using AgendaToDo.ConsoleApp.Compartilhado;
+using AgendaToDo.ConsoleApp.ModuloCompromisso;
 using AgendaToDo.ConsoleApp.ModuloContato;
 using System;
 
@@ -18,6 +19,7 @@ namespace AgendaToDo.ConsoleApp
 
                 if (telaSelecionada is ICadastroBase)
                     GerenciarCadastroBasico(telaSelecionada, opcaoSelecionada);
+                
             }
         }
 
@@ -49,6 +51,46 @@ namespace AgendaToDo.ConsoleApp
                 if (opcaoSelecionada == "5")
                 {
                     bool temRegistros = telaContato.VisualizarRegistrosOrdenador("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+            }
+            else if (telaSelecionada is TelaCompromisso)//VizualizarOrdenadoCargo
+            {
+                TelaCompromisso telaCompromisso = (TelaCompromisso)telaSelecionada;
+                if (opcaoSelecionada == "5")
+                {
+                    bool temRegistros = telaCompromisso.CompromissoDia("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+                else if (opcaoSelecionada == "6")
+                {
+                    bool temRegistros = telaCompromisso.CompromissoSemana("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+                else if (opcaoSelecionada == "7")
+                {
+                    bool temRegistros = telaCompromisso.CompromissosPassados("Tela");
+
+                    if (!temRegistros)
+                        notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
+
+                    Console.ReadKey();
+                }
+                else if (opcaoSelecionada == "8")
+                {
+                    bool temRegistros = telaCompromisso.CompromissosFuturos("Tela");
 
                     if (!temRegistros)
                         notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);

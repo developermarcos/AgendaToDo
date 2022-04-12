@@ -33,8 +33,8 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             Console.WriteLine("Digite 4 para Visualizar");
             Console.WriteLine("Digite 5 para Compromissos do dia");
             Console.WriteLine("Digite 6 para Compromissos da semana");
-            Console.WriteLine("Digite 6 para Compromissos passados");
-            Console.WriteLine("Digite 6 para Compromissos futuros");
+            Console.WriteLine("Digite 7 para Compromissos passados");
+            Console.WriteLine("Digite 8 para Compromissos futuros");
 
             Console.WriteLine("Digite s para sair");
 
@@ -45,12 +45,48 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
 
         public void EditarRegistro()
         {
-            throw new System.NotImplementedException();
+            MostrarTitulo("Editando compromisso");
+            if (!VisualizarRegistros("Tela"))
+            {
+                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                return;
+            }
+
+            int idCompromisso = ObterNumeroCompromisso();
+
+            if (!telaContato.VisualizarRegistros("Tela"))
+            {
+                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                return;
+            }
+
+            Contato contato = ObterContato();
+            Compromisso novoCompromisso = ObterCompromisso(contato);
+
+            string mensagemValidacao = repositorioCompromisso.Editar(idCompromisso, novoCompromisso);
+
+            if (mensagemValidacao == "REGISTRO_VALIDO")
+                notificador.ApresentarMensagem("Compromisso inserido com sucesso!", TipoMensagem.Sucesso);
+
+            else
+                notificador.ApresentarMensagem("Compromisso não inserido, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public void ExcluirRegistro()
         {
-            throw new System.NotImplementedException();
+            MostrarTitulo("Excluindo compromisso");
+            if (!telaContato.VisualizarRegistros("Tela"))
+            {
+                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                return;
+            }
+
+            int idCompromisso = ObterNumeroCompromisso();
+
+            repositorioCompromisso.Excluir(idCompromisso);
+
+            notificador.ApresentarMensagem("Compromisso excluído com sucesso!", TipoMensagem.Sucesso);
+
         }
 
         public void InserirRegistro()
@@ -76,7 +112,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
         public bool VisualizarRegistros(string tipoVisualizado)
         {
             if (tipoVisualizado == "Tela")
-                MostrarTitulo("Visualização de Contato");
+                MostrarTitulo("Visualização de compromisso");
 
             List<Compromisso> compromissos = repositorioCompromisso.ObterTodosRegistros();
 
@@ -93,27 +129,123 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             return true;
         }
 
-        public void CompromissoSemana()
+        public bool CompromissoSemana(string tipoVisualizado)
         {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de compromisso da semana");
 
+            DateTime dataFiltro = ObterData("Informe a data de inicio do filtro: ");
+
+            List<Compromisso> compromissos = repositorioCompromisso.CompromissoSemana(dataFiltro);
+
+            if (compromissos.Count == 0)
+                return false;
+
+            foreach (Compromisso compromisso in compromissos)
+            {
+                Console.WriteLine(compromisso.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
         }
 
-        public void CompromissoDia()
+        public bool CompromissoDia(string tipoVisualizado)
         {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de compromisso da semana");
 
+            DateTime dataFiltro = ObterData("Informe a data do filtro EX(00/00/0000): ");
+
+            List<Compromisso> compromissos = repositorioCompromisso.CompromissoDia(dataFiltro);
+
+            if (compromissos.Count == 0)
+                return false;
+
+            foreach (Compromisso compromisso in compromissos)
+            {
+                Console.WriteLine(compromisso.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
         }
 
-        public void CompromissosPassados()
+        public bool CompromissosPassados(string tipoVisualizado)
         {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de compromisso da semana");
 
+            List<Compromisso> compromissos = repositorioCompromisso.CompromissosPassados();
+
+            if (compromissos.Count == 0)
+                return false;
+
+            foreach (Compromisso compromisso in compromissos)
+            {
+                Console.WriteLine(compromisso.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
         }
         
-       public void CompromissosFuturos(TimeSpan inicio, TimeSpan fim)
+        public bool CompromissosFuturos(string tipoVisualizado)
        {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de compromisso da semana");
 
-       }
+            DateTime inicioFiltro = ObterData("Informe a data de inicio do filtro EX(00/00/0000): ");
+            DateTime inicioFinal = ObterData("Informe a data de final do filtro EX(00/00/0000): ");
 
+            List<Compromisso> compromissos = repositorioCompromisso.CompromissosFuturos(inicioFiltro, inicioFinal);
 
+            if (compromissos.Count == 0)
+                return false;
+
+            Console.WriteLine("");
+
+            foreach (Compromisso compromisso in compromissos)
+            {
+                Console.WriteLine(compromisso.ToString());
+
+                Console.WriteLine();
+            }
+
+            return true;
+        }
+
+        private Contato ObterContato()
+        {
+            while (true)
+            {
+                Console.Write("Informe o id do contato que deseja anexar ao compromisso: ");
+                int id = Convert.ToInt32(Console.ReadLine());
+
+                if (repositorioContato.RegistroExiste(id))
+                    return repositorioContato.ObterRegistro(id);
+                else
+                    notificador.ApresentarMensagem("Contato informado não encontrado, tente novamente!.\n", TipoMensagem.Atencao);
+            }
+        }
+
+        public void PopularCompromissos()
+        {
+            Compromisso compromisso1 = new Compromisso("Compra maquinas", "Orion", new DateTime(2022, 04, 20), new TimeSpan(13, 00, 00), new TimeSpan(18, 00, 00), repositorioContato.ObterRegistro(1));
+            Compromisso compromisso2 = new Compromisso("Integrador", "Uniplac", new DateTime(2022, 04, 30), new TimeSpan(13, 00, 00), new TimeSpan(18, 00, 00), repositorioContato.ObterRegistro(2));
+            Compromisso compromisso3 = new Compromisso("Negócio", "Duck Bill", new DateTime(2022, 05, 30), new TimeSpan(13, 00, 00), new TimeSpan(18, 00, 00), repositorioContato.ObterRegistro(3));
+            Compromisso compromisso4 = new Compromisso("Futebol", "AVEP", new DateTime(2022, 04, 18), new TimeSpan(13, 00, 00), new TimeSpan(18, 00, 00), repositorioContato.ObterRegistro(4));
+            Compromisso compromisso5 = new Compromisso("Churrasco", "Casa do Rech", new DateTime(2022, 04, 10), new TimeSpan(13, 00, 00), new TimeSpan(18, 00, 00), repositorioContato.ObterRegistro(5));
+
+            repositorioCompromisso.Inserir(compromisso1);
+            repositorioCompromisso.Inserir(compromisso2);
+            repositorioCompromisso.Inserir(compromisso3);
+            repositorioCompromisso.Inserir(compromisso4);
+            repositorioCompromisso.Inserir(compromisso5);
+        }
 
         #region métodos privados
 
@@ -165,7 +297,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
                 if (conversaoRealizada && horaInicio < horaFim)
                     break;
 
-                Console.WriteLine("Formato invalido, tente novamente");
+                Console.WriteLine("Formato invalido ou término inferior a hora de inicio, tente novamente");
             }
             Compromisso compromisso = new Compromisso(assunto, local, dataCompromisso, horaInicio, horaFim, contato);
 
@@ -191,34 +323,22 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             return numeroContato;
         }
 
-        private Contato ObterContato()
+        private DateTime ObterData(string mensagem)
         {
             while (true)
             {
-                Console.Write("Informe o id do contato que deseja anexar ao compromisso: ");
-                int id = Convert.ToInt32(Console.ReadLine());
+                DateTime data;
+                Console.Write(mensagem);
+                string lerTela = Console.ReadLine();
 
-                if (repositorioContato.RegistroExiste(id))
-                    return repositorioContato.ObterRegistro(id);
-                else
-                    notificador.ApresentarMensagem("Contato informado não encontrado, tente novamente!.\n", TipoMensagem.Atencao);
+                bool conversaoRealizada = DateTime.TryParse(lerTela, out data);
+
+                if (conversaoRealizada)
+                    return data;
+
+                notificador.ApresentarMensagem("Data não informada no formato correto, tente novamente.\n", TipoMensagem.Atencao);
             }
         }
-
-        //private void PopularContatos()
-        //{
-        //    Contato contato1 = new Contato("Marcos", "m@m.com", "(49)99999-0000", "google", "Team leader");
-        //    Contato contato2 = new Contato("Joao", "j@m.com", "(49)44444-0000", "google", "Caixa");
-        //    Contato contato3 = new Contato("Ana", "a@m.com", "(49)55555-0000", "google", "Gerente");
-        //    Contato contato4 = new Contato("Bruna", "b@m.com", "(49)77777-0000", "google", "Caixa");
-        //    Contato contato5 = new Contato("Zé", "z@m.com", "(49)11111-0000", "google", "Cozinheiro");
-
-        //    repositorioContato.Inserir(contato1);
-        //    repositorioContato.Inserir(contato2);
-        //    repositorioContato.Inserir(contato3);
-        //    repositorioContato.Inserir(contato4);
-        //    repositorioContato.Inserir(contato5);
-        //}
 
         #endregion
     }

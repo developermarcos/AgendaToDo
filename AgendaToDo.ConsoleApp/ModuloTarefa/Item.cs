@@ -3,8 +3,9 @@ using System;
 
 namespace AgendaToDo.ConsoleApp.ModuloTarefa
 {
-    public class Item : EntidadeBase
+    public class Item
     {
+        public int Id { get; set; }
         public string descricao;
         private decimal percentual;
         public decimal Percentual
@@ -15,9 +16,10 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
                 percentual = decimal.Round(percentual, 2, MidpointRounding.ToEven);
             }
         }
-        public override string Validar()
+
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"ID: {Id} | Descrição: {descricao} | Percentual: {percentual}";
         }
     }
 }

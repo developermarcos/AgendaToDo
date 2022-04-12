@@ -12,7 +12,6 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
         {
             this.repositorioContato = repositorioContato;
             this.notificador = notificador;
-            PopularContatos();
         }
 
         public override string ApresentarMenu()
@@ -50,9 +49,14 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
             Contato contatoAtualizado = ObterContato();
 
-            repositorioContato.Editar(numeroContato, contatoAtualizado);
+            string mensagemValidacao = repositorioContato.Editar(numeroContato, contatoAtualizado);
 
-            notificador.ApresentarMensagem("Caixa editada com sucesso", TipoMensagem.Sucesso);
+            if (mensagemValidacao == "REGISTRO_VALIDO")
+                notificador.ApresentarMensagem("Contato editado com sucesso!", TipoMensagem.Sucesso);
+
+            else
+                notificador.ApresentarMensagem("Contato não editado, erro na validação dos campos", TipoMensagem.Erro);
+
         }
 
         public void ExcluirRegistro()
@@ -119,14 +123,36 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
             if (contatos.Count == 0)
                 return false;
 
+            string cargo = "";
+
             foreach (Contato contato in contatos)
             {
+                if (contato.cargo != cargo)
+                {
+                    cargo = contato.cargo;
+                    Console.WriteLine("Cargo "+cargo);
+                }
                 Console.WriteLine(contato.ToString());
 
                 Console.WriteLine();
             }
 
             return true;
+        }
+
+        public void PopularContatos()
+        {
+            Contato contato1 = new Contato("Marcos", "m@m.com", "(49)99999-0000", "google", "Team leader");
+            Contato contato2 = new Contato("Joao", "j@m.com", "(49)44444-0000", "google", "Caixa");
+            Contato contato3 = new Contato("Ana", "a@m.com", "(49)55555-0000", "google", "Gerente");
+            Contato contato4 = new Contato("Bruna", "b@m.com", "(49)77777-0000", "google", "Caixa");
+            Contato contato5 = new Contato("Zé", "z@m.com", "(49)11111-0000", "google", "Cozinheiro");
+
+            repositorioContato.Inserir(contato1);
+            repositorioContato.Inserir(contato2);
+            repositorioContato.Inserir(contato3);
+            repositorioContato.Inserir(contato4);
+            repositorioContato.Inserir(contato5);
         }
 
 
@@ -174,21 +200,6 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
             } while (numeroContatoEncontrado == false);
             return numeroContato;
-        }
-
-        private void PopularContatos()
-        {
-            Contato contato1 = new Contato("Marcos", "m@m.com", "(49)99999-0000", "google", "Team leader");
-            Contato contato2 = new Contato("Joao", "j@m.com", "(49)44444-0000", "google", "Caixa");
-            Contato contato3 = new Contato("Ana", "a@m.com", "(49)55555-0000", "google", "Gerente");
-            Contato contato4 = new Contato("Bruna", "b@m.com", "(49)77777-0000", "google", "Caixa");
-            Contato contato5 = new Contato("Zé", "z@m.com", "(49)11111-0000", "google", "Cozinheiro");
-
-            repositorioContato.Inserir(contato1);
-            repositorioContato.Inserir(contato2);
-            repositorioContato.Inserir(contato3);
-            repositorioContato.Inserir(contato4);
-            repositorioContato.Inserir(contato5);
         }
 
         #endregion

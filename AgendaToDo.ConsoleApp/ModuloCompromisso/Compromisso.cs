@@ -12,10 +12,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
         public TimeSpan horaInicio;
         public TimeSpan horaTermino;
         public Contato contato;
-        private DateTime dataCompromisso;
-        private DateTime horaInicio1;
-        private DateTime horaFim;
-
+        
         public Compromisso(string assunto, string local, DateTime data, TimeSpan horaInicio, TimeSpan horaTermino, Contato contato)
         {
             this.assunto = assunto;
@@ -31,22 +28,37 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             return "REGISTRO_VALIDO";
         }
 
-        public bool CompromissoSemana()
+        public bool CompromissoSemana(DateTime dataFiltro)
         {
+            DateTime dataInicio = dataFiltro;
+            DateTime datafim = dataFiltro.AddDays(7);
+
+            if (dataInicio <= data && data <= datafim)
+                return true;
+
             return false;
         }
 
-        public bool CompromissoDia()
+        public bool CompromissoDia(DateTime dataFiltro)
         {
+            if (data.Date == dataFiltro.Date)
+                return true;
+
             return false;
         }
         public bool CompromissoPassado()
         {
+            if (data < DateTime.Now)
+                return true;
+
             return false;
         }
 
         public bool ComprimissoFuturo(DateTime inicio, DateTime fim)
         {
+            if (inicio <= data && data <= fim)
+                return true;
+
             return false;
         }
 

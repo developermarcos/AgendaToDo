@@ -38,7 +38,10 @@ namespace AgendaToDo.ConsoleApp.Compartilhado
 
             telaContato = new TelaContato(notificador, repositorioContato);
             telaCompromisso = new TelaCompromisso(notificador, repositorioCompromisso, repositorioContato, telaContato);
-            telaTarefa = new TelaTarefa();
+            telaTarefa = new TelaTarefa(notificador, repositorioTarefa);
+
+            telaContato.PopularContatos();
+            telaCompromisso.PopularCompromissos();
         }
 
         public string MostrarOpcoes()

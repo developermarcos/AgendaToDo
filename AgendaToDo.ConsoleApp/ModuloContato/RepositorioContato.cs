@@ -8,8 +8,11 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
         public List<Contato> ObterRegistrosOrdenadoPorCargo()
         {
-            registros.Sort((x, y) => string.Compare(x.cargo, y.cargo));
-            return registros;
+            List<Contato> contatosOrdenadosPorCargo = registros;
+
+            contatosOrdenadosPorCargo.Sort((x, y) => string.Compare(x.cargo, y.cargo));
+
+            return contatosOrdenadosPorCargo;
         }
     }
 }

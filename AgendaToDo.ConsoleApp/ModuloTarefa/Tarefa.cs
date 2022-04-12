@@ -10,33 +10,48 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
         public Prioridade prioridade { get; set; }
         public string titulo { get; set; }
         
-        private DateTime dataCriacao { get; }
+        public DateTime dataCriacao { get; }
 
-        public DateTime dataDevolucao;
+        public DateTime dataTermino;
 
-        private decimal percentual;
+        public List<Item> itens;
 
-        List<Item> itens;
-
-        public Tarefa(Prioridade prioridade, string titulo, DateTime dataCriacao, DateTime dataDevolucao)
+        public Tarefa(Prioridade prioridade, string titulo, DateTime dataCriacao, DateTime dataTermino, List<Item> itens)
         {
             this.prioridade = prioridade;
             this.titulo = titulo;
             this.dataCriacao = dataCriacao;
-            this.dataDevolucao = dataDevolucao;
-            this.itens = new List<Item>();
+            this.dataTermino = dataTermino;
+            this.itens = itens;
+        }
+
+        public Tarefa(Prioridade prioridade, string titulo, DateTime dataFim, List<Item> itens)
+        {
+            this.prioridade=prioridade;
+            this.titulo=titulo;
+            this.dataTermino=dataFim;
+            this.itens=itens;
         }
 
         public override string Validar()
         {
-            throw new System.NotImplementedException();
+            return "REGISTRO_VALIDO";
         }
 
         public decimal ObterPercentual()
         {
             decimal total = itens.Sum(item => item.Percentual);
-            percentual = total / itens.Count;
-            return percentual;
+            return  total / itens.Count;
+        }
+
+        public override string ToString()
+        {
+            string mensagem = $"Numero: {numero} | Titulo: {titulo} | Criacao: {dataCriacao} | Termino: {dataTermino} | Percentual: {ObterPercentual()}";
+
+            foreach(Item item in itens)
+                mensagem += "\n"+item.ToString();
+
+            return mensagem;
         }
 
     }
