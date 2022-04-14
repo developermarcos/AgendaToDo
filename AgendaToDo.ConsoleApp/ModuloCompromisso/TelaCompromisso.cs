@@ -99,7 +99,11 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             }
             Contato contato = ObterContato();
             Compromisso novoCompromisso = ObterCompromisso(contato);
-
+            if(repositorioCompromisso.ExisteCompromisso(novoCompromisso) == true)
+            {
+                notificador.ApresentarMensagem("Não foi possível inserir, existe conflito de horários", TipoMensagem.Atencao);
+                return;
+            }
             string mensagemValidacao = repositorioCompromisso.Inserir(novoCompromisso);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")

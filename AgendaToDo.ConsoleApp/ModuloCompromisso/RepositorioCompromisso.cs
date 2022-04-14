@@ -56,5 +56,17 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
 
             return compromissosFuturos;
         }
+
+        public bool ExisteCompromisso(Compromisso compromissoValidacao)
+        {
+            foreach (Compromisso compromisso in registros)
+            {
+                if(compromisso.data == compromissoValidacao.data)
+                {
+                    return compromissoValidacao.ExisteConflitoHorario(compromisso.horaInicio, compromisso.horaTermino);
+                }
+            }
+            return false;
+        }
     }
 }

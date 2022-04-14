@@ -68,5 +68,15 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             mensagem += $"Nome: {this.contato.nome} | Telefone: {this.contato.telefone} | Empresa: {this.contato.empresa}";
             return mensagem;
         }
+
+        internal bool ExisteConflitoHorario(TimeSpan inicio, TimeSpan termino)
+        {
+            if (horaInicio > inicio && horaInicio < termino)
+                return true;
+            if(horaTermino > inicio && horaTermino < termino)
+                return true;
+
+            return false;
+        }
     }
 }
