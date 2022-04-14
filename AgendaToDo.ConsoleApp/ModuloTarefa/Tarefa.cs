@@ -46,7 +46,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
         public override string ToString()
         {
-            string mensagem = $"Numero: {numero} | Titulo: {titulo} | Criacao: {dataCriacao} | Termino: {dataTermino} | Percentual: {ObterPercentual()}";
+            string mensagem = $"Numero: {numero} | Prioridade {prioridade} | Titulo: {titulo} | Criacao: {dataCriacao} | Termino: {dataTermino} | Percentual: {ObterPercentual()}";
 
             foreach(Item item in itens)
                 mensagem += "\n"+item.ToString();

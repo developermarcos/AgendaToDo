@@ -5,14 +5,12 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 {
     public class Item
     {
-        public int Id { get; set; }
         public string descricao;
         private decimal percentual;
 
         public Item() { }
-        public Item(int id, string descricao, decimal percentual)
+        public Item(string descricao, decimal percentual)
         {
-            this.Id = id;
             this.descricao = descricao;
             this.percentual = percentual;
         }
@@ -24,7 +22,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
         public override string ToString()
         {
-            return $"ID: {Id} | Descrição: {descricao} | Percentual: {percentual}";
+            return $"Descrição: {descricao} | Percentual: {percentual}";
         }
     }
 }

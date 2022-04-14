@@ -1,5 +1,6 @@
 ﻿using AgendaToDo.ConsoleApp.Compartilhado;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AgendaToDo.ConsoleApp.ModuloTarefa
 {
@@ -24,20 +25,26 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
                     tarefasPedentes.Add(tarefa);
             }
 
-            return tarefasPedentes;
+            return ObterListaOrdenadaPrioridade(tarefasPedentes);
         }
 
         public List<Tarefa> ObterTarefasConcluidas()
         {
             List<Tarefa> tarefasConcluidas = new List<Tarefa>();
 
-            foreach (Tarefa tarefa in registros)
+            foreach(Tarefa tarefa in registros)
             {
-                if (tarefa.EstaConcluida())
+                if(tarefa.EstaConcluida())
                     tarefasConcluidas.Add(tarefa);
             }
 
-            return tarefasConcluidas;
+            return ObterListaOrdenadaPrioridade(tarefasConcluidas);
+        }
+        private List<Tarefa> ObterListaOrdenadaPrioridade(List<Tarefa> tarefas)
+        {
+            List<Tarefa> tarefasOrdenadas = tarefas.OrderByDescending(m => (int)m.prioridade).ToList();
+
+            return tarefasOrdenadas;
         }
     }
 }

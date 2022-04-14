@@ -66,7 +66,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
         {
             MostrarTitulo("Excluindo nova tarefa");
 
-            bool temTarefaCadastrada = VisualizarRegistros("Pesquisando");
+            bool temTarefaCadastrada = VisualizarTarefasConcluidas("Pesquisando");
 
             if (!temTarefaCadastrada)
             {
@@ -120,7 +120,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
         {
             MostrarTitulo("Editando itens da tarefa");
 
-            bool temTarefaCadastrada = VisualizarRegistros("Pesquisando");
+            bool temTarefaCadastrada = VisualizarTarefasPendentes("Pesquisando");
 
             if (!temTarefaCadastrada)
             {
@@ -164,7 +164,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
         public bool VisualizarTarefasConcluidas(string tipoVisualizado)
         {
             if (tipoVisualizado == "Tela")
-                MostrarTitulo("Visualização de Tarefa pendentes");
+                MostrarTitulo("Visualização de Tarefa concluídas");
 
             List<Tarefa> tarefas = repositorioTarefa.ObterTarefasConcluidas();
 
@@ -184,8 +184,8 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
         public void PopularTarefas()
         {
-            Item item1 = new Item(1, "Cadastro tela", 0);
-            Item item2 = new Item(2, "Cadastro tela", 5);
+            Item item1 = new Item("Cadastro tela", 5);
+            Item item2 = new Item("Repositorio", 10);
             
             DateTime inicio = new DateTime(2022,04,20);
             DateTime fim = new DateTime(2022, 04, 25);
@@ -195,8 +195,8 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             itens.Add(item2);
 
             Tarefa tarefa1 = new Tarefa(Prioridade.Media, "Cadastro compromisso", inicio, fim, itens);
-            Tarefa tarefa2 = new Tarefa(Prioridade.Media, "Cadastro tarefa", inicio, fim, itens);
-            Tarefa tarefa3 = new Tarefa(Prioridade.Media, "Cadastro contato", inicio, fim, itens);
+            Tarefa tarefa2 = new Tarefa(Prioridade.Alta, "Cadastro tarefa", inicio, fim, itens);
+            Tarefa tarefa3 = new Tarefa(Prioridade.Baixa, "Cadastro contato", inicio, fim, itens);
 
             repositorioTarefa.Inserir(tarefa1);
             repositorioTarefa.Inserir(tarefa2);
@@ -283,7 +283,6 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             {
                 Item item = new Item();
 
-                item.Id = i+1;
                 Console.Write($"Informe a descrição do {i+1}º item: ");
                 item.descricao = Console.ReadLine();
                 item.Percentual = 0;
