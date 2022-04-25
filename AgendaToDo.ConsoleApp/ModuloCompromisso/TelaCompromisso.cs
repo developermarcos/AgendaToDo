@@ -7,15 +7,13 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
 {
     public class TelaCompromisso : TelaBase, ICadastroBase
     {
-        Notificador notificador;
         RepositorioCompromisso repositorioCompromisso;
 
         RepositorioContato repositorioContato;
         TelaContato telaContato;
 
-        public TelaCompromisso(Notificador notificador, RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato,TelaContato telaContato) : base("Tela Compromisso")
+        public TelaCompromisso(Notificador notificador, RepositorioCompromisso repositorioCompromisso, RepositorioContato repositorioContato,TelaContato telaContato) : base("Tela Compromisso", notificador)
         { 
-            this.notificador = notificador;
             this.repositorioCompromisso = repositorioCompromisso;
             this.repositorioContato = repositorioContato;
             this.telaContato = telaContato;
@@ -48,7 +46,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             MostrarTitulo("Editando compromisso");
             if (!VisualizarRegistros("Tela"))
             {
-                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
                 return;
             }
 
@@ -56,7 +54,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
 
             if (!telaContato.VisualizarRegistros("Tela"))
             {
-                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
                 return;
             }
 
@@ -66,10 +64,10 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             string mensagemValidacao = repositorioCompromisso.Editar(idCompromisso, novoCompromisso);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Compromisso inserido com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Compromisso inserido com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Compromisso não inserido, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Compromisso não inserido, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public void ExcluirRegistro()
@@ -77,7 +75,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             MostrarTitulo("Excluindo compromisso");
             if (!telaContato.VisualizarRegistros("Tela"))
             {
-                notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum compromisso cadastrado", TipoMensagem.Atencao);
                 return;
             }
 
@@ -85,7 +83,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
 
             repositorioCompromisso.Excluir(idCompromisso);
 
-            notificador.ApresentarMensagem("Compromisso excluído com sucesso!", TipoMensagem.Sucesso);
+            _notificador.ApresentarMensagem("Compromisso excluído com sucesso!", TipoMensagem.Sucesso);
 
         }
 
@@ -94,23 +92,23 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
             MostrarTitulo("Inserindo novo compromisso");
             if (!telaContato.VisualizarRegistros(""))
             {
-                notificador.ApresentarMensagem("Nenhum contato cadastrado", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum contato cadastrado", TipoMensagem.Atencao);
                 return;
             }
             Contato contato = ObterContato();
             Compromisso novoCompromisso = ObterCompromisso(contato);
             if(repositorioCompromisso.ExisteCompromisso(novoCompromisso) == true)
             {
-                notificador.ApresentarMensagem("Não foi possível inserir, existe conflito de horários", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Não foi possível inserir, existe conflito de horários", TipoMensagem.Atencao);
                 return;
             }
             string mensagemValidacao = repositorioCompromisso.Inserir(novoCompromisso);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Contato inserido com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Contato inserido com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Contato não inserido, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Contato não inserido, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public bool VisualizarRegistros(string tipoVisualizado)
@@ -232,7 +230,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
                 if (repositorioContato.RegistroExiste(id))
                     return repositorioContato.ObterRegistro(id);
                 else
-                    notificador.ApresentarMensagem("Contato informado não encontrado, tente novamente!.\n", TipoMensagem.Atencao);
+                    _notificador.ApresentarMensagem("Contato informado não encontrado, tente novamente!.\n", TipoMensagem.Atencao);
             }
         }
 
@@ -321,7 +319,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
                 numeroContatoEncontrado = repositorioCompromisso.RegistroExiste(numeroContato);
 
                 if (numeroContatoEncontrado == false)
-                    notificador.ApresentarMensagem("Número do compromisso não encontrado, digite novamente", TipoMensagem.Atencao);
+                    _notificador.ApresentarMensagem("Número do compromisso não encontrado, digite novamente", TipoMensagem.Atencao);
 
             } while (numeroContatoEncontrado == false);
             return numeroContato;
@@ -340,7 +338,7 @@ namespace AgendaToDo.ConsoleApp.ModuloCompromisso
                 if (conversaoRealizada)
                     return data;
 
-                notificador.ApresentarMensagem("Data não informada no formato correto, tente novamente.\n", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Data não informada no formato correto, tente novamente.\n", TipoMensagem.Atencao);
             }
         }
 

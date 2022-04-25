@@ -7,11 +7,9 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
     public class TelaContato : TelaBase, ICadastroBase
     {
         RepositorioContato repositorioContato;
-        Notificador notificador;
-        public TelaContato(Notificador notificador,RepositorioContato repositorioContato) : base("Tela Contato")
+        public TelaContato(Notificador notificador,RepositorioContato repositorioContato) : base("Tela Contato", notificador)
         {
             this.repositorioContato = repositorioContato;
-            this.notificador = notificador;
         }
 
         public override string ApresentarMenu()
@@ -41,7 +39,7 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
             if (temContatoCadastrado == false)
             {
-                notificador.ApresentarMensagem("Nenhum contato cadastrado para poder editar", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum contato cadastrado para poder editar", TipoMensagem.Atencao);
                 return;
             }
 
@@ -52,10 +50,10 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
             string mensagemValidacao = repositorioContato.Editar(numeroContato, contatoAtualizado);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Contato editado com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Contato editado com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Contato não editado, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Contato não editado, erro na validação dos campos", TipoMensagem.Erro);
 
         }
 
@@ -67,7 +65,7 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
             if (temContatoCadastrado == false)
             {
-                notificador.ApresentarMensagem("Nenhum contato cadastrado para poder excluir", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhum contato cadastrado para poder excluir", TipoMensagem.Atencao);
                 return;
             }
 
@@ -75,7 +73,7 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
             repositorioContato.Excluir(numeroCaixa);
 
-            notificador.ApresentarMensagem("Caixa excluída com sucesso", TipoMensagem.Sucesso);
+            _notificador.ApresentarMensagem("Caixa excluída com sucesso", TipoMensagem.Sucesso);
         }
 
         public void InserirRegistro()
@@ -87,10 +85,10 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
             string mensagemValidacao = repositorioContato.Inserir(novoContato);
 
             if(mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Contato inserido com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Contato inserido com sucesso!", TipoMensagem.Sucesso);
             
             else
-                notificador.ApresentarMensagem("Contato não inserido, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Contato não inserido, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public bool VisualizarRegistros(string tipoVisualizado)
@@ -160,22 +158,17 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
 
         private Contato ObterContato()
         {
-            Console.Write("Digite o nome: ");
-            string nome = Console.ReadLine();
+            string nome = ObterValor<string>("Digite o nome: ");
 
             Console.Write("\nO email deve ser informado seguindo o seguinte padrão (conta@dominio.com)");
-            Console.Write("\nDigite o email : ");
-            string email = Console.ReadLine();
+            string email = ObterValor<string>("\nDigite o email : ");
 
             Console.Write("\nO telefone deve ser informado seguindo o seguinte padrão (00)00000-0000");
-            Console.Write("\nDigite o telefone: ");
-            string telefone = Console.ReadLine();
+            string telefone = ObterValor<string>("\nDigite o telefone: ");
 
-            Console.Write("Digite a empresa: ");
-            string empresa = Console.ReadLine();
+            string empresa = ObterValor<string>("Digite a empresa: ");
 
-            Console.Write("Digite o cargo: ");
-            string cargo = Console.ReadLine();
+            string cargo = ObterValor<string>("Digite o cargo: ");
 
             
             Contato contato = new Contato(nome, email, telefone, empresa, cargo);
@@ -196,7 +189,7 @@ namespace AgendaToDo.ConsoleApp.ModuloContato
                 numeroContatoEncontrado = repositorioContato.RegistroExiste(numeroContato);
 
                 if (numeroContatoEncontrado == false)
-                    notificador.ApresentarMensagem("Número do contato não encontrado, digite novamente", TipoMensagem.Atencao);
+                    _notificador.ApresentarMensagem("Número do contato não encontrado, digite novamente", TipoMensagem.Atencao);
 
             } while (numeroContatoEncontrado == false);
             return numeroContato;

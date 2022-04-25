@@ -8,11 +8,9 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
     public enum TipoDado { Cadastro, Edicao}
     public class TelaTarefa : TelaBase, ICadastroBase
     {
-        Notificador notificador;
         RepositorioTarefa repositorioTarefa;
-        public TelaTarefa(Notificador notificador, RepositorioTarefa repositorioTarefa) : base("Tela Tarefa")
+        public TelaTarefa(Notificador notificador, RepositorioTarefa repositorioTarefa) : base("Tela Tarefa", notificador)
         {
-            this.notificador = notificador;
             this.repositorioTarefa = repositorioTarefa;
         }
 
@@ -45,7 +43,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
             if (!temTarefaCadastrada)
             {
-                notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
                 return;
             }
 
@@ -56,10 +54,10 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             string mensagemValidacao = repositorioTarefa.Editar(idTarefa, novaTarefa);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public void ExcluirRegistro()
@@ -70,7 +68,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
             if (!temTarefaCadastrada)
             {
-                notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
                 return;
             }
 
@@ -78,7 +76,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
             repositorioTarefa.Excluir(idTarefa);
 
-            notificador.ApresentarMensagem("Tarefa excluída com sucesso!", TipoMensagem.Sucesso);
+            _notificador.ApresentarMensagem("Tarefa excluída com sucesso!", TipoMensagem.Sucesso);
         }
 
         public void InserirRegistro()
@@ -90,10 +88,10 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             string mensagemValidacao = repositorioTarefa.Inserir(novaTarefa);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public bool VisualizarRegistros(string tipoVisualizado)
@@ -124,7 +122,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
 
             if (!temTarefaCadastrada)
             {
-                notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Nenhuma tarefa cadastrada para poder editar", TipoMensagem.Atencao);
                 return;
             }
 
@@ -135,10 +133,10 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
             string mensagemValidacao = repositorioTarefa.Editar(idTarefa, tarefaAtualizada);
 
             if (mensagemValidacao == "REGISTRO_VALIDO")
-                notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
+                _notificador.ApresentarMensagem("Tarefa inserida com sucesso!", TipoMensagem.Sucesso);
 
             else
-                notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
+                _notificador.ApresentarMensagem("Tarefa não inserida, erro na validação dos campos", TipoMensagem.Erro);
         }
 
         public bool VisualizarTarefasPendentes(string tipoVisualizado)
@@ -245,7 +243,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
                 numeroContatoEncontrado = repositorioTarefa.RegistroExiste(numeroContato);
 
                 if (numeroContatoEncontrado == false)
-                    notificador.ApresentarMensagem("Número da tarefa não encontrada, digite novamente", TipoMensagem.Atencao);
+                    _notificador.ApresentarMensagem("Número da tarefa não encontrada, digite novamente", TipoMensagem.Atencao);
 
             } while (numeroContatoEncontrado == false);
             return numeroContato;
@@ -264,7 +262,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
                 if (conversaoRealizada)
                     return data;
 
-                notificador.ApresentarMensagem("Data não informada no formato correto, tente novamente.\n", TipoMensagem.Atencao);
+                _notificador.ApresentarMensagem("Data não informada no formato correto, tente novamente.\n", TipoMensagem.Atencao);
             }
         }
 
@@ -319,7 +317,7 @@ namespace AgendaToDo.ConsoleApp.ModuloTarefa
                         break;
                     }
 
-                    notificador.ApresentarMensagem("Porcentagem invalida, tente novamente", TipoMensagem.Erro);
+                    _notificador.ApresentarMensagem("Porcentagem invalida, tente novamente", TipoMensagem.Erro);
                 }
                 item.descricao = tarefa.itens[i].descricao;
                 
