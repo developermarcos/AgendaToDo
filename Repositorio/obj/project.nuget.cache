@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "zyeXVXIjEVvbME1ShLmxHl32tQQbkUI67xq5oASfHzfE4S2rhzSoPbMJW+5DSs0bvtsmnpH1bw/VjF7Is3gyGw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\marco\\source\\repos\\PrimeiraAplicacao\\Repositorio\\Repositorio.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project PrimeiraAplicacao.WinFormsApp is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Project PrimeiraAplicacao.WinFormsApp supports: net5.0-windows7.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "PrimeiraAplicacao.WinFormsApp",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

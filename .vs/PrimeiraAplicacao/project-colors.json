@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "16ca64c2-e9b0-4d48-b3fe-80e9c06fdb2a": {
+      "ProjectGuid": "16ca64c2-e9b0-4d48-b3fe-80e9c06fdb2a",
+      "DisplayName": "Apresentacao.ToDo",
+      "ColorIndex": 0
+    },
+    "4e96a2c0-bca4-4fb7-b1cd-439c428e0469": {
+      "ProjectGuid": "4e96a2c0-bca4-4fb7-b1cd-439c428e0469",
+      "DisplayName": "Dominio",
+      "ColorIndex": 1
+    },
+    "d4073390-e062-42cc-8639-d938c0e11429": {
+      "ProjectGuid": "d4073390-e062-42cc-8639-d938c0e11429",
+      "DisplayName": "Repositorio",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "4aadb2b7-5e72-4324-86d9-5da9d7409c62": {
+      "ProjectGuid": "4aadb2b7-5e72-4324-86d9-5da9d7409c62",
+      "DisplayName": "Dominio.ToDo",
+      "ColorIndex": 3
+    },
+    "1fc1a444-83ab-4d7f-b477-26e3e927f018": {
+      "ProjectGuid": "1fc1a444-83ab-4d7f-b477-26e3e927f018",
+      "DisplayName": "Infra.ToDo",
+      "ColorIndex": 4
+    },
+    "a84b5379-177e-4978-bd07-6b4b70feca7f": {
+      "ProjectGuid": "a84b5379-177e-4978-bd07-6b4b70feca7f",
+      "DisplayName": "Apresentacao.Tarefa",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

@@ -1,0 +1,184 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\marco\\Desktop\\AgendaToDo\\PrimeiraAplicacao.WinFormsApp\\Apresentacao.ToDo.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj",
+        "projectName": "Dominio.ToDo",
+        "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj",
+        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\marco\\Desktop\\AgendaToDo\\PrimeiraAplicacao.WinFormsApp\\Apresentacao.ToDo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marco\\Desktop\\AgendaToDo\\PrimeiraAplicacao.WinFormsApp\\Apresentacao.ToDo.csproj",
+        "projectName": "Apresentacao.ToDo",
+        "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\PrimeiraAplicacao.WinFormsApp\\Apresentacao.ToDo.csproj",
+        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\PrimeiraAplicacao.WinFormsApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj": {
+                "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj"
+              },
+              "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj": {
+                "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj",
+        "projectName": "Infra.ToDo",
+        "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj",
+        "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj": {
+                "projectPath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Dominio.Tarefa\\Dominio.ToDo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
