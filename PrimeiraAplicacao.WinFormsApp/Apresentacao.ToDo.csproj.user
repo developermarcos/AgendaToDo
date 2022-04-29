@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="TelaListagemTarefas.cs">
+    <Compile Update="Tarefa\TelaListagemTarefas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="TelaCrudTarefas.cs">
+    <Compile Update="Tarefa\TelaCrudTarefas.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

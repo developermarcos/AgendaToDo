@@ -7,24 +7,30 @@ namespace Dominio.ToDo.Compartilhado.Serializador
 {
     public class SerializadoEmJson<T> : ISerializador<T>
     {
-        private const string caminho = "teste";
-        public string caminhoArquivo => caminho;
+        private readonly string caminhoArquivo = @"C:\temp\tarefa.bin";
 
+        public SerializadoEmJson(string caminho)
+        {
+            caminhoArquivo = caminho;
+        }
+        
         public List<T> CarregarRegistrosDoArquivo()
         {
-            if(!File.Exists(caminhoArquivo))
+            if (File.Exists(caminhoArquivo) == false)
                 return new List<T>();
 
-            string registrosDeserializados = File.ReadAllText(caminhoArquivo);
+            string registrosJson = File.ReadAllText(caminhoArquivo);
 
-            return JsonSerializer.Deserialize<List<T>>(registrosDeserializados);
+            return JsonSerializer.Deserialize<List<T>>(registrosJson);
         }
 
         public void GravarRegistrosEmArquivo(List<T> registros)
         {
-            string registrosSerializados = JsonSerializer.Serialize(registros);
+            var config = new JsonSerializerOptions { WriteIndented = true };
 
-            File.WriteAllText(caminhoArquivo, registrosSerializados);
+            string registrosJson = JsonSerializer.Serialize(registros, config);
+
+            File.WriteAllText(caminhoArquivo, registrosJson);
         }
     }
 }

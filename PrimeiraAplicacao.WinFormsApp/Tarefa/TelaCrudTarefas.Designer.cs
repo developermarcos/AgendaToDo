@@ -1,4 +1,4 @@
-﻿namespace PrimeiraAplicacao.WinFormsApp
+﻿namespace AgendaToDo.WinFor
 {
     partial class TelaCrudTarefas
     {
@@ -38,6 +38,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(206, 162);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(102, 37);
@@ -47,6 +48,7 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSalvar.Location = new System.Drawing.Point(29, 162);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(102, 37);
@@ -88,7 +90,7 @@
             this.textBoxDescricao.Size = new System.Drawing.Size(271, 23);
             this.textBoxDescricao.TabIndex = 5;
             // 
-            // TelaCrud
+            // TelaCrudTarefas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +101,7 @@
             this.Controls.Add(this.labelNumero);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnCancelar);
-            this.Name = "TelaCrud";
+            this.Name = "TelaCrudTarefas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCrud";
             this.ResumeLayout(false);

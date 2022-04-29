@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "x6PXLbu3eQvygCMBXxWgrUWQ5IfEmDNWfa/KK4XBS4BUj+wguYW5abUUJGrfefik20ysV3KbV+SYcinke+oFEw==",
+  "dgSpecHash": "67jwjNpHIO6FayAZOvPOp1nanrrpLwTnLMrWXjc0miWfikoStrIZQ6HgRTLlz5JJSnz2294R2zRxwpzBoKAatQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marco\\Desktop\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\marco\\source\\repos\\AgendaToDo\\Repositorio.Tarefa\\Infra.ToDo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dominio.ToDo.Compartilhado;
 
 namespace Dominio.ToDo
 {
     [Serializable]
-    public class Tarefa
+    public class Tarefa : EntidadeBase
     {
         private List<ItemTarefa> itens = new List<ItemTarefa>();
 
@@ -21,7 +22,6 @@ namespace Dominio.ToDo
             DataConclusao = null;
         }
 
-        public int Numero { get; set; }
         public string Titulo { get; set; }
         public DateTime DataCriacao { get; set; }
         public DateTime? DataConclusao { get; set; }

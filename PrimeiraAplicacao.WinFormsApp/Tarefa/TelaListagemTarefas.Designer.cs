@@ -1,4 +1,4 @@
-﻿namespace PrimeiraAplicacao.WinFormsApp
+﻿namespace AgendaToDo.WinFor
 {
     partial class TelaListagemTarefas
     {
@@ -105,16 +105,16 @@
             this.listBoxTarefas.Size = new System.Drawing.Size(765, 319);
             this.listBoxTarefas.TabIndex = 1;
             // 
-            // TelaBase
+            // TelaListagemTarefas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listBoxTarefas);
             this.Controls.Add(this.panelAcoes);
-            this.Name = "TelaBase";
+            this.Name = "TelaListagemTarefas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaBase";
+            this.Text = "NomeTela";
             this.panelAcoes.ResumeLayout(false);
             this.ResumeLayout(false);
 

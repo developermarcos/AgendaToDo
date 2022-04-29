@@ -5,9 +5,15 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apresentacao.ToDo", "PrimeiraAplicacao.WinFormsApp\Apresentacao.ToDo.csproj", "{16CA64C2-E9B0-4D48-B3FE-80E9C06FDB2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio.ToDo", "Dominio.Tarefa\Dominio.ToDo.csproj", "{4AADB2B7-5E72-4324-86D9-5DA9D7409C62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio.ToDo", "Dominio.Tarefa\Dominio.ToDo.csproj", "{4AADB2B7-5E72-4324-86D9-5DA9D7409C62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra.ToDo", "Repositorio.Tarefa\Infra.ToDo.csproj", "{1FC1A444-83AB-4D7F-B477-26E3E927F018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.ToDo", "Repositorio.Tarefa\Infra.ToDo.csproj", "{1FC1A444-83AB-4D7F-B477-26E3E927F018}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Apresentação", "1-Apresentação", "{F0A97E87-A34A-4BAE-93C6-560025D68F01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Dominio", "2-Dominio", "{31ADABF7-5298-46EE-9097-2AECBB1C9193}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Infra", "3-Infra", "{E38745A8-2838-4DFF-B3D7-CD80EE7C6972}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16CA64C2-E9B0-4D48-B3FE-80E9C06FDB2A} = {F0A97E87-A34A-4BAE-93C6-560025D68F01}
+		{4AADB2B7-5E72-4324-86D9-5DA9D7409C62} = {31ADABF7-5298-46EE-9097-2AECBB1C9193}
+		{1FC1A444-83AB-4D7F-B477-26E3E927F018} = {E38745A8-2838-4DFF-B3D7-CD80EE7C6972}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A63D516-6F3F-4DD6-B97D-64795F1CCB40}

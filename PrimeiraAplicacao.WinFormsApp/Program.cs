@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PrimeiraAplicacao.WinFormsApp
+namespace AgendaToDo.WinFor
 {
     public static class Program
     {
@@ -17,7 +17,7 @@ namespace PrimeiraAplicacao.WinFormsApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaListagemTarefas());
+            Application.Run(new TelaListagemTarefas("Listagem Tarefas"));
         }
     }
 }

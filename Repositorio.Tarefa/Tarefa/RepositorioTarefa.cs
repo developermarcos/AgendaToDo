@@ -3,60 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using Dominio.ToDo.Compartilhado.Serializador;
 using Dominio.ToDo;
+using Infra.ToDo.Compartilhado;
 
 
 
 namespace Infra.ToDo
 {
-    public class RepositorioTarefa
+    public class RepositorioTarefa : RepositorioBase<Tarefa>
     {
-
-        private readonly ISerializador<Tarefa> serializador;
-        List<Tarefa> tarefas;
-        private int contador = 0;
-
-        public RepositorioTarefa(ISerializador<Tarefa> serializador)
+        public RepositorioTarefa() 
+            : base(new SerializadorEmJsonNewton<Tarefa>(@"C:\Users\marco\source\repos\AgendaToDo\Repositorio.Tarefa\Data\tarefas.json"))
         {
-            this.serializador = serializador;
-
-            tarefas = serializador.CarregarRegistrosDoArquivo();
-
-            if (tarefas.Count > 0)
-                contador = tarefas.Max(x => x.Numero);
-        }
-
-        public List<Tarefa> SelecionarTodos()
-        {
-            return tarefas;
-        }
-
-        public void Inserir(Tarefa novaTarefa)
-        {
-            novaTarefa.Numero = ++contador;
-            tarefas.Add(novaTarefa);
-
-            serializador.GravarRegistrosEmArquivo(tarefas);
-        }
-
-        public void Editar(Tarefa tarefa)
-        {
-            foreach (var item in tarefas)
-            {
-                if (item.Numero == tarefa.Numero)
-                {
-                    item.Titulo = tarefa.Titulo;
-                    break;
-                }
-            }
-
-            serializador.GravarRegistrosEmArquivo(tarefas);
-        }
-
-        public void Excluir(Tarefa tarefa)
-        {
-            tarefas.Remove(tarefa);
-
-            serializador.GravarRegistrosEmArquivo(tarefas);
         }
 
         public void AdicionarItens(Tarefa tarefaSelecionada, List<ItemTarefa> itens)
@@ -66,7 +23,7 @@ namespace Infra.ToDo
                 tarefaSelecionada.AdicionarItem(item);
             }
 
-            serializador.GravarRegistrosEmArquivo(tarefas);
+            serializador.GravarRegistrosEmArquivo(registros);
         }
 
         public void AtualizarItens(Tarefa tarefaSelecionada,
@@ -82,7 +39,7 @@ namespace Infra.ToDo
                 tarefaSelecionada.MarcarPendente(item);
             }
 
-            serializador.GravarRegistrosEmArquivo(tarefas);
+            serializador.GravarRegistrosEmArquivo(registros);
         }
 
 

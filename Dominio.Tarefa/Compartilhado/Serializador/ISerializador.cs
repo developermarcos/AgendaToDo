@@ -8,7 +8,6 @@ namespace Dominio.ToDo.Compartilhado.Serializador
 {
     public interface ISerializador<T>
     {
-        string caminhoArquivo { get; }
         List<T> CarregarRegistrosDoArquivo();
         void GravarRegistrosEmArquivo(List<T> registros);
     }

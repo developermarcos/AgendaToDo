@@ -7,4 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dominio.ToDo
-build_property.ProjectDir = C:\Users\marco\Desktop\AgendaToDo\Dominio.Tarefa\
+build_property.ProjectDir = C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\
