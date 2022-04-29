@@ -49,5 +49,50 @@ namespace AgendaToDo.WinFor
                 CarregarTarefas();
             }
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefas.SelectedItem;
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma tarefa primeiro",
+                "Edição de Tarefas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaCrudTarefas tela = new TelaCrudTarefas("Editar Tarefa");
+
+            tela.Tarefa = tarefaSelecionada;
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                _repositorioTarefa.Editar(tela.Tarefa);
+                CarregarTarefas();
+            }
+        }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            Tarefa tarefaSelecionada = (Tarefa)listBoxTarefas.SelectedItem;
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma tarefa primeiro",
+                "Exclusão de Tarefas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a tarefa?",
+                "Exclusão de Tarefas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.OK)
+            {
+                _repositorioTarefa.Excluir(tarefaSelecionada);
+                CarregarTarefas();
+            }
+        }
     }
 }
