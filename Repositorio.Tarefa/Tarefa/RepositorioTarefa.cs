@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dominio.ToDo.Compartilhado.Serializador;
-using Dominio.ToDo;
+using Dominio.ToDo.TarefaItens;
 using Infra.ToDo.Compartilhado;
 
 

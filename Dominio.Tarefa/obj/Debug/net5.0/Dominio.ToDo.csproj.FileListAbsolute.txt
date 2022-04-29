@@ -32,4 +32,3 @@ C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\obj\Debug\net5.0\Dominio.T
 C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\obj\Debug\net5.0\Dominio.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\obj\Debug\net5.0\ref\Dominio.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\obj\Debug\net5.0\Dominio.ToDo.pdb
-C:\Users\marco\source\repos\AgendaToDo\Dominio.Tarefa\obj\Debug\net5.0\Dominio.ToDo.csproj.AssemblyReference.cache

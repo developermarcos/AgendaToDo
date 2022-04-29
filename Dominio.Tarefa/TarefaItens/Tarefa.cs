@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dominio.ToDo.Compartilhado;
 
-namespace Dominio.ToDo
+namespace Dominio.ToDo.TarefaItens
 {
     [Serializable]
     public class Tarefa : EntidadeBase
@@ -75,6 +75,11 @@ namespace Dominio.ToDo
             var percentualConcluido = (qtdConcluidas / (decimal)itens.Count()) * 100;
 
             return Math.Round(percentualConcluido, 2);
+        }
+
+        public override string Validar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

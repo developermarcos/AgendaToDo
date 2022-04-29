@@ -1,32 +1,31 @@
-﻿using System;
+﻿using AgendaToDo.WinFor;
+using Dominio.ToDo.TarefaItens;
+using Infra.ToDo;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Dominio.ToDo.Compartilhado.Serializador;
-using Dominio.ToDo;
-using Infra.ToDo;
-
-namespace AgendaToDo.WinFor
+namespace Apresentacao.ToDo.ModelTarefa
 {
-    public partial class TelaListagemTarefas : Form
+    public partial class UserControlTarefas : UserControl
     {
-        private RepositorioTarefa _repositorioTarefa;
-
-        public TelaListagemTarefas(string mensagem)
+        RepositorioTarefa _repositorioContato;
+        public UserControlTarefas(RepositorioTarefa repositorioTarefa)
         {
-            _repositorioTarefa = new RepositorioTarefa();
-
-            this.Name = mensagem;
-            
             InitializeComponent();
-
+            _repositorioContato=repositorioTarefa;
             CarregarTarefas();
         }
-        
 
         private void CarregarTarefas()
         {
-            List<Tarefa> tarefas = _repositorioTarefa.SelecionarTodos();
+            List<Tarefa> tarefas = _repositorioContato.SelecionarTodos();
 
             listBoxTarefas.Items.Clear();
             if (tarefas != null)
@@ -45,7 +44,7 @@ namespace AgendaToDo.WinFor
 
             if (resultado == DialogResult.OK)
             {
-                _repositorioTarefa.Inserir(telaCadastrar.Tarefa);
+                _repositorioContato.Inserir(telaCadastrar.Tarefa);
                 CarregarTarefas();
             }
         }
@@ -69,7 +68,7 @@ namespace AgendaToDo.WinFor
 
             if (resultado == DialogResult.OK)
             {
-                _repositorioTarefa.Editar(tela.Tarefa);
+                _repositorioContato.Editar(tela.Tarefa);
                 CarregarTarefas();
             }
         }
@@ -90,7 +89,7 @@ namespace AgendaToDo.WinFor
 
             if (resultado == DialogResult.OK)
             {
-                _repositorioTarefa.Excluir(tarefaSelecionada);
+                _repositorioContato.Excluir(tarefaSelecionada);
                 CarregarTarefas();
             }
         }

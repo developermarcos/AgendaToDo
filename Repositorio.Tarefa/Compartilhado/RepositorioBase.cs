@@ -13,7 +13,7 @@ namespace Infra.ToDo.Compartilhado
         protected ISerializador<T> serializador;
         protected List<T> registros;
         protected int contador = 0;
-        
+
         public RepositorioBase(ISerializador<T> serializador)
         {
             this.serializador = serializador;
@@ -29,31 +29,57 @@ namespace Infra.ToDo.Compartilhado
 
         public List<T> SelecionarTodos()
         {
-            return registros;
+            return registros.ToList();
         }
 
-        public void Inserir(T novoRegistro)
+        public string Inserir(T novoRegistro)
         {
-            novoRegistro.Numero = ++contador;
-            registros.Add(novoRegistro);
+            string dadosValidos = novoRegistro.Validar();
 
-            serializador.GravarRegistrosEmArquivo(registros);
+            if(dadosValidos == "REGISTRO_VALIDO")
+            {
+                novoRegistro.Numero = ++contador;
+
+                registros.Add(novoRegistro);
+
+                serializador.GravarRegistrosEmArquivo(registros);
+            }
+
+            return dadosValidos;
         }
 
-        public void Editar(T registro)
+        public string Editar(T registro)
         {
-            registros.RemoveAll(x => x.Numero == registro.Numero);
+            string dadosValidos = registro.Validar();
 
-            registros.Add(registro);
+            if (dadosValidos == "REGISTRO_VALIDO")
+            {
+                registros.RemoveAll(x => x.Numero == registro.Numero);
 
-            serializador.GravarRegistrosEmArquivo(registros);
+                registros.Add(registro);
+
+                List<T> ordenarRegistros = registros;
+
+                registros = ordenarRegistros.OrderBy(x => x.Numero).ToList();
+
+                serializador.GravarRegistrosEmArquivo(registros);
+            }
+
+            return dadosValidos;
         }
 
-        public void Excluir(T registro)
+        public string Excluir(T registro)
         {
-            registros.Remove(registro);
+            string dadosValidos = registro.Validar();
 
-            serializador.GravarRegistrosEmArquivo(registros);
+            if (dadosValidos == "REGISTRO_VALIDO")
+            {
+                registros.Remove(registro);
+
+                serializador.GravarRegistrosEmArquivo(registros);
+            }
+
+            return dadosValidos;
         }
 
     }

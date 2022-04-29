@@ -1,4 +1,4 @@
-﻿using Dominio.ToDo;
+﻿using Dominio.ToDo.TarefaItens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

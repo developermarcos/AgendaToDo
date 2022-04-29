@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Dominio.ToDo
+namespace Dominio.ToDo.TarefaItens
 {
     [Serializable]
     public class ItemTarefa

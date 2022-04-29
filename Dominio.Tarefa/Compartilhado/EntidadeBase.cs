@@ -11,5 +11,7 @@ namespace Dominio.ToDo.Compartilhado
         public int Numero { get; set; }
 
         public abstract override string ToString();
+
+        public abstract string Validar();
     }
 }

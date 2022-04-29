@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Apresentacao.ToDo.Compartilhado
 {
-    public enum TipoTela
+    public enum Telas
     {
-        Cadastrar, Editar, Excluir
+        Tarefas, Contatos, Compromissos
     }
 }

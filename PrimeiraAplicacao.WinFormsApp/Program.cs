@@ -1,3 +1,4 @@
+using Apresentacao.ToDo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace AgendaToDo.WinFor
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaListagemTarefas("Listagem Tarefas"));
+            //Application.Run(new TelaListagemTarefas("Listagem Tarefas"));
+            Application.Run(new TelaPrincipal());
         }
     }
 }
