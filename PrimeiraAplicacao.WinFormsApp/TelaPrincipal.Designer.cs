@@ -69,6 +69,7 @@
             this.btnCompromissos.TabIndex = 2;
             this.btnCompromissos.Text = "Compromissos";
             this.btnCompromissos.UseVisualStyleBackColor = true;
+            this.btnCompromissos.Click += new System.EventHandler(this.btnCompromissos_Click);
             // 
             // btnContatos
             // 

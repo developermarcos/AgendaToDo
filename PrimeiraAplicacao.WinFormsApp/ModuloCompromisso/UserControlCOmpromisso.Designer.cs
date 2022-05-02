@@ -1,6 +1,6 @@
-﻿namespace Apresentacao.ToDo.ModuloContato
+﻿namespace Apresentacao.ToDo.ModuloCompromisso
 {
-    partial class UserControlContato
+    partial class UserControlCompromisso
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,21 +32,19 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.listBoxContatos = new System.Windows.Forms.ListBox();
-            this.btnAgruparCargo = new System.Windows.Forms.Button();
+            this.listBoxCompromissos = new System.Windows.Forms.ListBox();
             this.panelAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAcoes
             // 
-            this.panelAcoes.Controls.Add(this.btnAgruparCargo);
             this.panelAcoes.Controls.Add(this.btnExcluir);
             this.panelAcoes.Controls.Add(this.btnEditar);
             this.panelAcoes.Controls.Add(this.btnCadastrar);
             this.panelAcoes.Location = new System.Drawing.Point(3, 3);
             this.panelAcoes.Name = "panelAcoes";
             this.panelAcoes.Size = new System.Drawing.Size(601, 85);
-            this.panelAcoes.TabIndex = 2;
+            this.panelAcoes.TabIndex = 3;
             // 
             // btnExcluir
             // 
@@ -56,7 +54,6 @@
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -66,7 +63,6 @@
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCadastrar
             // 
@@ -78,32 +74,22 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // listBoxContatos
+            // listBoxCompromissos
             // 
-            this.listBoxContatos.FormattingEnabled = true;
-            this.listBoxContatos.ItemHeight = 15;
-            this.listBoxContatos.Location = new System.Drawing.Point(3, 96);
-            this.listBoxContatos.Name = "listBoxContatos";
-            this.listBoxContatos.Size = new System.Drawing.Size(897, 319);
-            this.listBoxContatos.TabIndex = 3;
+            this.listBoxCompromissos.FormattingEnabled = true;
+            this.listBoxCompromissos.ItemHeight = 15;
+            this.listBoxCompromissos.Location = new System.Drawing.Point(3, 94);
+            this.listBoxCompromissos.Name = "listBoxCompromissos";
+            this.listBoxCompromissos.Size = new System.Drawing.Size(897, 319);
+            this.listBoxCompromissos.TabIndex = 4;
             // 
-            // btnAgruparCargo
-            // 
-            this.btnAgruparCargo.Location = new System.Drawing.Point(448, 17);
-            this.btnAgruparCargo.Name = "btnAgruparCargo";
-            this.btnAgruparCargo.Size = new System.Drawing.Size(126, 53);
-            this.btnAgruparCargo.TabIndex = 3;
-            this.btnAgruparCargo.Text = "Agrupar por Cargo";
-            this.btnAgruparCargo.UseVisualStyleBackColor = true;
-            this.btnAgruparCargo.Click += new System.EventHandler(this.btnAgruparCargo_Click);
-            // 
-            // UserControlContato
+            // UserControlCOmpromisso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listBoxContatos);
+            this.Controls.Add(this.listBoxCompromissos);
             this.Controls.Add(this.panelAcoes);
-            this.Name = "UserControlContato";
+            this.Name = "UserControlCOmpromisso";
             this.Size = new System.Drawing.Size(903, 426);
             this.panelAcoes.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -116,7 +102,6 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.ListBox listBoxContatos;
-        private System.Windows.Forms.Button btnAgruparCargo;
+        private System.Windows.Forms.ListBox listBoxCompromissos;
     }
 }

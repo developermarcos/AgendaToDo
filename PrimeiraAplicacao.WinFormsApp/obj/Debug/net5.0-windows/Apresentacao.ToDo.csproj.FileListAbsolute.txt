@@ -46,11 +46,11 @@ C:\Users\marco\Desktop\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0
 C:\Users\marco\Desktop\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\ref\Apresentacao.ToDo.dll
 C:\Users\marco\Desktop\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.pdb
 C:\Users\marco\Desktop\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.genruntimeconfig.cache
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.exe
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.deps.json
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.runtimeconfig.json
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.runtimeconfig.dev.json
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\ref\Apresentacao.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Apresentacao.ToDo.pdb
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
@@ -60,6 +60,14 @@ C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\n
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\bin\Debug\net5.0-windows\Infra.ToDo.pdb
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.csproj.AssemblyReference.cache
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\AgendaToDo.WinFor.TelaCrudTarefas.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModelTarefa.UserControlTarefas.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloCompromisso.TelaCrudCompromisso.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloCompromisso.UserControlCompromisso.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloContato.TelaCrudContato.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloContato.TelaSelecionaContato.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloContato.UserControlContato.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.Properties.Resources.resources
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.TelaPrincipal.resources
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.csproj.GenerateResource.cache
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.AssemblyInfoInputs.cache
@@ -70,8 +78,3 @@ C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\n
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\ref\Apresentacao.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.pdb
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.genruntimeconfig.cache
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.Properties.Resources.resources
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.TelaPrincipal.resources
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModelTarefa.UserControlTarefas.resources
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloContato.TelaCrudContato.resources
-C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModuloContato.UserControlContato.resources

@@ -1,0 +1,33 @@
+[
+  {
+    "assunto": "Reuniao teste",
+    "local": "Casa",
+    "dataCompromisso": "2022-06-10T00:00:00",
+    "horaInicio": "13:00:00",
+    "horaFim": "15:00:00",
+    "contato": {
+      "nome": "Marcos Lima",
+      "email": "marcos@marcos.com",
+      "empresa": "Academia Programador",
+      "telefone": "49999993510",
+      "cargo": "Desenvolvedor",
+      "Numero": 1
+    },
+    "DataCompromisso": "10/06/2022",
+    "HoraInicio": "13:00",
+    "HoraFim": "15:00",
+    "Numero": 1
+  },
+  {
+    "assunto": "Viagem",
+    "local": "Florianópolis",
+    "dataCompromisso": "2022-05-25T00:00:00",
+    "horaInicio": "08:00:00",
+    "horaFim": "12:00:00",
+    "contato": null,
+    "DataCompromisso": "25/05/2022",
+    "HoraInicio": "08:00",
+    "HoraFim": "12:00",
+    "Numero": 2
+  }
+]

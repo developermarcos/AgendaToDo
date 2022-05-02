@@ -27,12 +27,12 @@ namespace Infra.ToDo.Compartilhado
 
         }
 
-        public List<T> SelecionarTodos()
+        public virtual List<T> SelecionarTodos()
         {
             return registros.ToList();
         }
 
-        public string Inserir(T novoRegistro)
+        public virtual string Inserir(T novoRegistro)
         {
             string dadosValidos = novoRegistro.Validar();
 
@@ -48,7 +48,7 @@ namespace Infra.ToDo.Compartilhado
             return dadosValidos;
         }
 
-        public string Editar(T registro)
+        public virtual string Editar(T registro)
         {
             string dadosValidos = registro.Validar();
 
@@ -68,7 +68,7 @@ namespace Infra.ToDo.Compartilhado
             return dadosValidos;
         }
 
-        public string Excluir(T registro)
+        public virtual string Excluir(T registro)
         {
             string dadosValidos = registro.Validar();
 

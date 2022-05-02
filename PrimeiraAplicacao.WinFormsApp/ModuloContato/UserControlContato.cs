@@ -43,6 +43,14 @@ namespace Apresentacao.ToDo.ModuloContato
 
             if (resultado == DialogResult.OK)
             {
+                string validaCamposUnicos = _repositorioContato.ValidaCamposIguais(telaContato.Contato);
+
+                if(validaCamposUnicos != "REGISTRO_VALIDO")
+                {
+                    MessageBox.Show(validaCamposUnicos, "Cadastro de contatos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string registroInserido = _repositorioContato.Inserir(telaContato.Contato);
                 if(registroInserido == "REGISTRO_VALIDO") 
                 {
@@ -98,6 +106,20 @@ namespace Apresentacao.ToDo.ModuloContato
                 _repositorioContato.Excluir(contatoselecionada);
                 Carregarcontatos();
             }
+        }
+
+        private void btnAgruparCargo_Click(object sender, EventArgs e)
+        {
+            
+            List<Contato> contatos = _repositorioContato.ObterRegistrosOrdenadoPorCargo();
+
+            listBoxContatos.Items.Clear();
+            if (contatos != null)
+                foreach (Contato t in contatos)
+                {
+                    listBoxContatos.Items.Add(t);
+                }
+            
         }
     }
 }

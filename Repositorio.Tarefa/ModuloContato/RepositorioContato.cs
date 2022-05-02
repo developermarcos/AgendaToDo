@@ -14,5 +14,27 @@ namespace Infra.ToDo.ModuloContato
         public RepositorioContato() : base(new SerializadorEmJsonNewton<Contato>(@"C:\Users\marco\source\repos\AgendaToDo\Repositorio.Tarefa\Data\contatos.json"))
         {
         }
+        public string ValidaCamposIguais(Contato contatoValidar)
+        {
+            string registroValido = "REGISTRO_VALIDO";
+            foreach(var item in registros)
+            {
+                if (contatoValidar.VerificaCamposIguais(item) == true)
+                {
+                    registroValido = "Campos NOME, EMAIL e TELEFONE devem ser únicos no sistema";
+                    break;
+                }
+            }
+            return registroValido;
+        }
+
+        public List<Contato> ObterRegistrosOrdenadoPorCargo()
+        {
+            List<Contato> contatosOrdenadosPorCargo = registros;
+
+            contatosOrdenadosPorCargo.Sort((x, y) => string.Compare(x.cargo, y.cargo));
+
+            return contatosOrdenadosPorCargo;
+        }
     }
 }

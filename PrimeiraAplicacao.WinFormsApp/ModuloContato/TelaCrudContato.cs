@@ -35,6 +35,7 @@ namespace Apresentacao.ToDo.ModuloContato
                 this.textBoxNome.Text = contato.nome;
                 this.textBoxEmpresa.Text = contato.empresa;
                 this.textBoxEmail.Text = contato.email;
+                this.textBoxCargo.Text = contato.cargo;
                 this.textBoxTelefone.Text = contato.telefone;
             }
         }
@@ -45,6 +46,7 @@ namespace Apresentacao.ToDo.ModuloContato
             contato.telefone = this.textBoxTelefone.Text;
             contato.empresa = this.textBoxEmpresa.Text;
             contato.email = this.textBoxEmail.Text;
+            contato.cargo = this.textBoxCargo.Text;
         }
     }
 }
