@@ -18,7 +18,7 @@ namespace Infra.ToDo.ModuloCompromisso
         {
             foreach (var item in registros)
             {
-                if (compromisso.ExisteConflitoCompromissos(item))
+                if (item.DataCompromisso == compromisso.DataCompromisso && compromisso.ExisteConflitoCompromissos(item))
                     return true;
             }
             return false;

@@ -46,6 +46,12 @@ namespace Apresentacao.ToDo.ModuloCompromisso
 
             if(resultado == DialogResult.OK)
             {
+                if (!_repositorioCompromisso.VerificarConflitoCompromissos(telaCrudCompromisso.Compromisso))
+                {
+                    MessageBox.Show("Conflito de horários com outro compromisso", 
+                        "Cadastro de compromissos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 string registroInserido = _repositorioCompromisso.Inserir(telaCrudCompromisso.Compromisso);
 
                 if (registroInserido == "REGISTRO_VALIDO")
@@ -58,5 +64,56 @@ namespace Apresentacao.ToDo.ModuloCompromisso
             }
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Compromisso compromissoSelecionado = (Compromisso)listBoxCompromissos.SelectedItem;
+
+            if (compromissoSelecionado == null)
+            {
+                MessageBox.Show("Selecione uma Compromisso primeiro",
+                "Edição de compromissos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaCrudCompromisso telaCrudCompromisso = new TelaCrudCompromisso(_repositorioContato);
+
+            telaCrudCompromisso.Compromisso = compromissoSelecionado;
+
+            DialogResult resultado = telaCrudCompromisso.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                string registroInserido = _repositorioCompromisso.Editar(telaCrudCompromisso.Compromisso);
+
+                if (registroInserido == "REGISTRO_VALIDO")
+                {
+                    MessageBox.Show("Registro editado com sucesso!", "Edição de compromissos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CarregarCompromissos();
+                }
+                else
+                    MessageBox.Show(registroInserido, "Edição de compromissos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Compromisso compromissoSelecionado = (Compromisso)listBoxCompromissos.SelectedItem;
+
+            if (compromissoSelecionado == null)
+            {
+                MessageBox.Show("Selecione uma Compromisso primeiro",
+                "Edição de compromissos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a Contato?",
+                "Exclusão de contatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.OK)
+            {
+                _repositorioCompromisso.Excluir(compromissoSelecionado);
+                CarregarCompromissos();
+            }
+        }
     }
 }

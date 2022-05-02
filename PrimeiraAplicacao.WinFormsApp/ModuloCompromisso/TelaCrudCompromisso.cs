@@ -1,5 +1,6 @@
 ﻿using Apresentacao.ToDo.ModuloContato;
 using Dominio.ToDo.ModuloCompromisso;
+using Dominio.ToDo.ModuloContato;
 using Infra.ToDo.ModuloContato;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,8 @@ namespace Apresentacao.ToDo.ModuloCompromisso
                 this.textBoxData.Text = compromisso.DataCompromisso;
                 this.textBoxHoraInicio.Text = compromisso.HoraInicio;
                 this.textBoxHoraFim.Text = compromisso.HoraFim;
+                if(compromisso.contato != null)
+                    this.textBoxContato.Text = compromisso.contato.nome;
             }
         }
 
@@ -46,7 +49,6 @@ namespace Apresentacao.ToDo.ModuloCompromisso
             compromisso.local = this.textBoxLocal.Text;
             compromisso.dataCompromisso = Convert.ToDateTime(this.textBoxData.Text);
             compromisso.SetHorarios(this.textBoxHoraInicio.Text, this.textBoxHoraFim.Text);
-            
         }
 
         private void buttonAdicionarContato_Click(object sender, EventArgs e)

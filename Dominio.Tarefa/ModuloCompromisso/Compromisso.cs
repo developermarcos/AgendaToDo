@@ -18,7 +18,7 @@ namespace Dominio.ToDo.ModuloCompromisso
         public Contato contato;
         public override string ToString()
         {
-            return $"Numero: {Numero} | Assunto: {assunto} | Local: {local} | Data: {dataCompromisso} | Período {horaInicio} a {horaFim}";
+            return $"Numero: {Numero}  |  Assunto: {assunto}  |  Local: {local}  |  Data: {DataCompromisso}  |  Período {HoraInicio} a {HoraFim}";
         }
 
         public string DataCompromisso

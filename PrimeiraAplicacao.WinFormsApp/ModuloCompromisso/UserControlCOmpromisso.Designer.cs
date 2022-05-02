@@ -54,6 +54,7 @@
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
@@ -63,6 +64,7 @@
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCadastrar
             // 
@@ -83,13 +85,13 @@
             this.listBoxCompromissos.Size = new System.Drawing.Size(897, 319);
             this.listBoxCompromissos.TabIndex = 4;
             // 
-            // UserControlCOmpromisso
+            // UserControlCompromisso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listBoxCompromissos);
             this.Controls.Add(this.panelAcoes);
-            this.Name = "UserControlCOmpromisso";
+            this.Name = "UserControlCompromisso";
             this.Size = new System.Drawing.Size(903, 426);
             this.panelAcoes.ResumeLayout(false);
             this.ResumeLayout(false);
