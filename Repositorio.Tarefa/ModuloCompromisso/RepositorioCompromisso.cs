@@ -1,5 +1,6 @@
 ﻿using Dominio.ToDo.Compartilhado.Serializador;
 using Dominio.ToDo.ModuloCompromisso;
+using Dominio.ToDo.ModuloContato;
 using Infra.ToDo.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,43 @@ namespace Infra.ToDo.ModuloCompromisso
         {
             foreach (var item in registros)
             {
-                if (item.DataCompromisso == compromisso.DataCompromisso && compromisso.ExisteConflitoCompromissos(item))
+                if (compromisso.VerificaDiasIgual(item.dataCompromisso) == true && compromisso.VerificaHorasEmComplito(item))
                     return true;
             }
             return false;
+        }
+        public List<Compromisso> SelecionarCompromissosPassados()
+        {
+            List<Compromisso> compromissosPassados = new List<Compromisso>();
+
+            foreach (var item in registros)
+            {
+                if (item.CompromissoPassado())
+                    compromissosPassados.Add(item);
+            }
+
+            return compromissosPassados;
+        }
+        public List<Compromisso> SelecionarCompromissosFuturos(DateTime inicio, DateTime fim)
+        {
+            List<Compromisso> compromissosFuturos = new List<Compromisso>();
+
+            foreach(var item in registros)
+            {
+                if (item.CompromissoFuturo(inicio, fim))
+                    compromissosFuturos.Add(item);
+            }
+
+            return compromissosFuturos;
+        }
+
+        public bool ContatoTemCompromisso(Contato contatoInformado)
+        {
+            if(registros.Exists(x => x.contato.Numero == contatoInformado.Numero) == true)
+                return true;
+
+            return false;
+            
         }
     }
 }

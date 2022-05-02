@@ -1,4 +1,5 @@
 ﻿using Dominio.ToDo.ModuloContato;
+using Infra.ToDo.ModuloCompromisso;
 using Infra.ToDo.ModuloContato;
 using System;
 using System.Collections.Generic;
@@ -91,9 +92,19 @@ namespace Apresentacao.ToDo.ModuloContato
         {
             Contato contatoselecionada = (Contato)listBoxContatos.SelectedItem;
 
+
             if (contatoselecionada == null)
             {
                 MessageBox.Show("Selecione uma Contato primeiro",
+                "Exclusão de contatos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+
+            if (repositorioCompromisso.ContatoTemCompromisso(contatoselecionada) == true)
+            {
+                MessageBox.Show("Contato esta vinculado a compromisso e não pode ser excluído.",
                 "Exclusão de contatos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

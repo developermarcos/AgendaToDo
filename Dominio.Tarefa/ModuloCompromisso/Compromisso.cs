@@ -18,7 +18,8 @@ namespace Dominio.ToDo.ModuloCompromisso
         public Contato contato;
         public override string ToString()
         {
-            return $"Numero: {Numero}  |  Assunto: {assunto}  |  Local: {local}  |  Data: {DataCompromisso}  |  Período {HoraInicio} a {HoraFim}";
+            string nome = contato != null && contato.nome != null ? contato.nome : "Não informado";
+            return $"Numero: {Numero}  |  Assunto: {assunto}  |  Local: {local}  |  Contato: {nome}  |  Data: {DataCompromisso}  |  Período {HoraInicio} a {HoraFim}";
         }
 
         public string DataCompromisso
@@ -55,7 +56,7 @@ namespace Dominio.ToDo.ModuloCompromisso
             if (assunto == "" || local == "" || dataCompromisso.Equals(null))
                 return "Campos ASSUNTO, LOCAL, DATA COMPROMISSO são obrigatórios";
 
-            if (dataCompromisso < DateTime.Now)
+            if (this.CompromissoPassado() == true)
                 mensagem = "-DATA INFORMADA MENOR QUE DATA ATUAL";
 
             if (horaInicio > horaFim)
@@ -67,11 +68,34 @@ namespace Dominio.ToDo.ModuloCompromisso
             return "REGISTRO_VALIDO";
         }
 
-        public bool ExisteConflitoCompromissos(Compromisso compromisso)
+        public bool VerificaHorasEmComplito(Compromisso compromisso)
         {
             if (horaInicio > compromisso.horaInicio && horaInicio < compromisso.horaFim)
                 return true;
             if (horaInicio > compromisso.horaInicio && horaFim < compromisso.horaFim)
+                return true;
+
+            return false;
+        }
+
+        public bool CompromissoPassado()
+        {
+            if ((DateTime.Now - dataCompromisso).Days > 0)
+                return true;
+
+            return false;
+        }
+
+        public bool VerificaDiasIgual(DateTime data)
+        {
+            if ((dataCompromisso - data).Days == 0)
+                return true;
+            
+            return false;
+        }
+        public bool CompromissoFuturo(DateTime inicio, DateTime fim)
+        {
+            if (inicio <= dataCompromisso && dataCompromisso <= fim)
                 return true;
 
             return false;
