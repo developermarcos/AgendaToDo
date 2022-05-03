@@ -78,3 +78,4 @@ C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\n
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\ref\Apresentacao.ToDo.dll
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.pdb
 C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.genruntimeconfig.cache
+C:\Users\marco\source\repos\AgendaToDo\PrimeiraAplicacao.WinFormsApp\obj\Debug\net5.0-windows\Apresentacao.ToDo.ModelTarefa.TelaAtualizarItem.resources

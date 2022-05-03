@@ -1,30 +1,74 @@
 [
   {
-    "Titulo": "Tarefa 2 Editadaaaa",
-    "DataCriacao": "2022-04-29T14:13:32.6828813-03:00",
+    "Titulo": "Primeira tarefaa",
+    "DataCriacao": "2022-05-03T15:09:49.7360693-03:00",
     "DataConclusao": null,
+    "prioridade": 1,
     "Itens": [],
+    "Numero": 1
+  },
+  {
+    "Titulo": "Tarefa 2 Editadaaaa",
+    "DataCriacao": "2022-05-03T15:11:52.6034281-03:00",
+    "DataConclusao": null,
+    "prioridade": 1,
+    "Itens": [
+      {
+        "Titulo": "Item 1",
+        "Concluido": false
+      },
+      {
+        "Titulo": "item 2",
+        "Concluido": false
+      },
+      {
+        "Titulo": "item 1",
+        "Concluido": false
+      }
+    ],
     "Numero": 2
   },
   {
     "Titulo": "terceira tarefaaaa",
-    "DataCriacao": "2022-04-29T15:16:33.8091495-03:00",
+    "DataCriacao": "2022-05-03T15:10:00.3128632-03:00",
     "DataConclusao": null,
-    "Itens": [],
+    "prioridade": 2,
+    "Itens": [
+      {
+        "Titulo": "item 1",
+        "Concluido": false
+      }
+    ],
     "Numero": 3
   },
   {
-    "Titulo": "teste",
-    "DataCriacao": "2022-04-29T15:21:53.2666588-03:00",
-    "DataConclusao": null,
-    "Itens": [],
-    "Numero": 4
+    "Titulo": "teste prioridade",
+    "DataCriacao": "2022-05-03T15:10:05.9029695-03:00",
+    "DataConclusao": "2022-05-03T15:10:25.1634703-03:00",
+    "prioridade": 3,
+    "Itens": [
+      {
+        "Titulo": "Item 1",
+        "Concluido": true
+      }
+    ],
+    "Numero": 10
   },
   {
-    "Titulo": "Primeira tarefaa",
-    "DataCriacao": "2022-04-29T11:48:37.1370154-03:00",
-    "DataConclusao": null,
-    "Itens": [],
-    "Numero": 1
+    "Titulo": "Tarefa verifica tab",
+    "DataCriacao": "2022-05-03T15:00:26.2283464-03:00",
+    "DataConclusao": "2022-05-03T15:03:44.4994997-03:00",
+    "prioridade": 1,
+    "Itens": [
+      {
+        "Titulo": "item 1",
+        "Concluido": true
+      },
+      {
+        "Titulo": "item 2",
+        "Concluido": true
+      }
+    ],
+    "Numero": 11
   }
 ]

@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Dominio.ToDo.Compartilhado;
 
-namespace Dominio.ToDo.TarefaItens
+namespace Dominio.ToDo.ModuloTarefa
 {
+    public enum Prioridade
+    {
+        Baixa = 1, Media = 2, Alta = 3
+    }
     [Serializable]
     public class Tarefa : EntidadeBase
     {
+        public string Titulo { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataConclusao { get; set; }
+
+        public Prioridade prioridade { get; set; }
+        public List<ItemTarefa> Itens { get { return itens; } }
+
         private List<ItemTarefa> itens = new List<ItemTarefa>();
 
         public Tarefa()
@@ -22,22 +33,17 @@ namespace Dominio.ToDo.TarefaItens
             DataConclusao = null;
         }
 
-        public string Titulo { get; set; }
-        public DateTime DataCriacao { get; set; }
-        public DateTime? DataConclusao { get; set; }
-        public List<ItemTarefa> Itens { get { return itens; } }
-
         public override string ToString()
         {
             var percentual = CalcularPercentualConcluido();
 
             if (DataConclusao.HasValue)
             {
-                return $"Número: {Numero}, Título: {Titulo}, Percentual: {percentual}, " +
+                return $"Número: {Numero}, Título: {Titulo}, Prioridade {prioridade}, Percentual: {percentual}, " +
                     $"Concluída: {DataConclusao.Value.ToShortDateString()}";
             }
 
-            return $"Número: {Numero}, Título: {Titulo}, Percentual: {percentual}";
+            return $"Número: {Numero}, Título: {Titulo}, Prioridade {prioridade}, Percentual: {percentual}";
         }
 
         public void AdicionarItem(ItemTarefa item)
@@ -79,7 +85,17 @@ namespace Dominio.ToDo.TarefaItens
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string validarRegistro = "";
+            if (Titulo == "")
+                validarRegistro += "\nNOME NÃO PODE SER VAZIO";
+
+            if(validarRegistro == "")
+                validarRegistro = "REGISTRO_VALIDO";
+
+            prioridade = prioridade != 0 ? prioridade : Prioridade.Baixa;
+
+            return validarRegistro;
+
         }
     }
 }

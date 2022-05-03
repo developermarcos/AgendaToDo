@@ -1,11 +1,17 @@
 ﻿using System;
 
 
-namespace Dominio.ToDo.TarefaItens
+namespace Dominio.ToDo.ModuloTarefa
 {
     [Serializable]
     public class ItemTarefa
     {
+        
+        public ItemTarefa(string text)
+        {
+            this.Titulo=text;
+        }
+
         public string Titulo { get; set; }
 
         public bool Concluido { get; set; }
@@ -20,7 +26,7 @@ namespace Dominio.ToDo.TarefaItens
             Concluido = true;
         }
 
-        internal void MarcarPendente()
+        public void MarcarPendente()
         {
             Concluido = false;
         }

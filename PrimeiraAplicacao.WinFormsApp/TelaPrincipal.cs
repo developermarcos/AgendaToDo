@@ -4,7 +4,7 @@ using Apresentacao.ToDo.ModelTarefa;
 using Apresentacao.ToDo.ModuloCompromisso;
 using Apresentacao.ToDo.ModuloContato;
 using Dominio.ToDo;
-using Infra.ToDo;
+using Infra.ToDo.ModuloTarefa;
 using Infra.ToDo.ModuloCompromisso;
 using Infra.ToDo.ModuloContato;
 using System;
