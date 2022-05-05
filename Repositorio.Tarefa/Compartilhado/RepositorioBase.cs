@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio.ToDo.Compartilhado;
-using Dominio.ToDo.Compartilhado.Serializador;
+using Infra.ToDo.Compartilhado.Serializador;
 
 namespace Infra.ToDo.Compartilhado
 {

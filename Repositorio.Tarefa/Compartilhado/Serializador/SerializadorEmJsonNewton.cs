@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Dominio.ToDo;
 
-namespace Dominio.ToDo.Compartilhado.Serializador
+namespace Infra.ToDo.Compartilhado.Serializador
 {
     public class SerializadorEmJsonNewton<T> : ISerializador<T>
     {

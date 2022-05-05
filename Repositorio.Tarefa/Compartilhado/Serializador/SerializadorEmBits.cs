@@ -4,7 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Dominio.ToDo.Compartilhado.Serializador
+namespace Infra.ToDo.Compartilhado.Serializador
 {
     public class SerializadorEmBits<T> : ISerializador<T>
     {

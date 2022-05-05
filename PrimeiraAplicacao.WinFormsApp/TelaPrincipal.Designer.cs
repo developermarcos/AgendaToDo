@@ -44,9 +44,10 @@
             this.panelMenu.Controls.Add(this.btnCompromissos);
             this.panelMenu.Controls.Add(this.btnContatos);
             this.panelMenu.Controls.Add(this.btnTarefas);
-            this.panelMenu.Location = new System.Drawing.Point(-1, 0);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(177, 449);
+            this.panelMenu.Size = new System.Drawing.Size(177, 450);
             this.panelMenu.TabIndex = 0;
             // 
             // pictureBox1
@@ -93,9 +94,10 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Location = new System.Drawing.Point(182, 12);
+            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPrincipal.Location = new System.Drawing.Point(177, 0);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(903, 426);
+            this.panelPrincipal.Size = new System.Drawing.Size(920, 450);
             this.panelPrincipal.TabIndex = 1;
             // 
             // TelaPrincipal

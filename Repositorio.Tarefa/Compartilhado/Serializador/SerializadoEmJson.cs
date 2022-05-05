@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Dominio.ToDo.Compartilhado.Serializador
+namespace Infra.ToDo.Compartilhado.Serializador
 {
     public class SerializadoEmJson<T> : ISerializador<T>
     {

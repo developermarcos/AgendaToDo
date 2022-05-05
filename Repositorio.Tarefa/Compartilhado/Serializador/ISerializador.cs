@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio.ToDo.Compartilhado.Serializador
+namespace Infra.ToDo.Compartilhado.Serializador
 {
     public interface ISerializador<T>
     {

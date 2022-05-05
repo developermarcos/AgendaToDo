@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panelAcoes = new System.Windows.Forms.Panel();
+            this.btnAgruparCargo = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.listBoxContatos = new System.Windows.Forms.ListBox();
-            this.btnAgruparCargo = new System.Windows.Forms.Button();
             this.panelAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,10 +43,21 @@
             this.panelAcoes.Controls.Add(this.btnExcluir);
             this.panelAcoes.Controls.Add(this.btnEditar);
             this.panelAcoes.Controls.Add(this.btnCadastrar);
-            this.panelAcoes.Location = new System.Drawing.Point(3, 3);
+            this.panelAcoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAcoes.Location = new System.Drawing.Point(0, 0);
             this.panelAcoes.Name = "panelAcoes";
-            this.panelAcoes.Size = new System.Drawing.Size(601, 85);
+            this.panelAcoes.Size = new System.Drawing.Size(903, 85);
             this.panelAcoes.TabIndex = 2;
+            // 
+            // btnAgruparCargo
+            // 
+            this.btnAgruparCargo.Location = new System.Drawing.Point(448, 17);
+            this.btnAgruparCargo.Name = "btnAgruparCargo";
+            this.btnAgruparCargo.Size = new System.Drawing.Size(126, 53);
+            this.btnAgruparCargo.TabIndex = 3;
+            this.btnAgruparCargo.Text = "Agrupar por Cargo";
+            this.btnAgruparCargo.UseVisualStyleBackColor = true;
+            this.btnAgruparCargo.Click += new System.EventHandler(this.btnAgruparCargo_Click);
             // 
             // btnExcluir
             // 
@@ -80,22 +91,13 @@
             // 
             // listBoxContatos
             // 
+            this.listBoxContatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxContatos.FormattingEnabled = true;
             this.listBoxContatos.ItemHeight = 15;
-            this.listBoxContatos.Location = new System.Drawing.Point(3, 96);
+            this.listBoxContatos.Location = new System.Drawing.Point(0, 85);
             this.listBoxContatos.Name = "listBoxContatos";
-            this.listBoxContatos.Size = new System.Drawing.Size(897, 319);
+            this.listBoxContatos.Size = new System.Drawing.Size(903, 341);
             this.listBoxContatos.TabIndex = 3;
-            // 
-            // btnAgruparCargo
-            // 
-            this.btnAgruparCargo.Location = new System.Drawing.Point(448, 17);
-            this.btnAgruparCargo.Name = "btnAgruparCargo";
-            this.btnAgruparCargo.Size = new System.Drawing.Size(126, 53);
-            this.btnAgruparCargo.TabIndex = 3;
-            this.btnAgruparCargo.Text = "Agrupar por Cargo";
-            this.btnAgruparCargo.UseVisualStyleBackColor = true;
-            this.btnAgruparCargo.Click += new System.EventHandler(this.btnAgruparCargo_Click);
             // 
             // UserControlContato
             // 

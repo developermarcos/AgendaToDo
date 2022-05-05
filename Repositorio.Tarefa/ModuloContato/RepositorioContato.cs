@@ -1,4 +1,4 @@
-﻿using Dominio.ToDo.Compartilhado.Serializador;
+﻿using Infra.ToDo.Compartilhado.Serializador;
 using Dominio.ToDo.ModuloContato;
 using Infra.ToDo.Compartilhado;
 using System;
