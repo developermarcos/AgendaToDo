@@ -100,7 +100,7 @@ namespace Apresentacao.ToDo.ModuloContato
                 return;
             }
 
-            RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+            RepositorioCompromissoArquivoSeparado repositorioCompromisso = new RepositorioCompromissoArquivoSeparado();
 
             if (repositorioCompromisso.ContatoTemCompromisso(contatoselecionada) == true)
             {

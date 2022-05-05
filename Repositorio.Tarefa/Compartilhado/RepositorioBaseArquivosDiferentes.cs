@@ -8,13 +8,13 @@ using Infra.ToDo.Compartilhado.Serializador;
 
 namespace Infra.ToDo.Compartilhado
 {
-    public abstract class RepositorioBase<T> where T : EntidadeBase
+    public abstract class RepositorioBaseArquivosDiferentes<T> where T : EntidadeBase
     {
-        protected ISerializador<T> serializador;
+        protected ISerializadorGenerico<T> serializador;
         protected List<T> registros;
         protected int contador = 0;
 
-        public RepositorioBase(ISerializador<T> serializador)
+        public RepositorioBaseArquivosDiferentes(ISerializadorGenerico<T> serializador)
         {
             this.serializador = serializador;
 

@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Infra.ToDo.Compartilhado.Serializador
 {
-    public class SerializadorEmBits<T> : ISerializador<T>
+    public class SerializadorEmBits<T> : ISerializadorGenerico<T>
     {
         private const string caminho = @"C:\temp\Ts.xml";
         public string caminhoArquivo { get => caminho; }

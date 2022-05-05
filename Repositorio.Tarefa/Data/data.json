@@ -1,0 +1,52 @@
+{
+  "Contatos": [
+    {
+      "nome": "marcos",
+      "email": "teste@teste.com",
+      "empresa": "teste",
+      "telefone": "(49)99999-1010",
+      "cargo": "teste",
+      "Numero": 1
+    }
+  ],
+  "Compromissos": [
+    {
+      "assunto": "Novo compromisso",
+      "local": "Casa",
+      "dataCompromisso": "2022-05-20T00:00:00",
+      "horaInicio": "08:00:00",
+      "horaFim": "10:00:00",
+      "contato": {
+        "nome": "marcos",
+        "email": "teste@teste.com",
+        "empresa": "teste",
+        "telefone": "(49)99999-1010",
+        "cargo": "teste",
+        "Numero": 1
+      },
+      "DataCompromisso": "20/05/2022",
+      "HoraInicio": "08:00",
+      "HoraFim": "10:00",
+      "Numero": 1
+    }
+  ],
+  "Tarefas": [
+    {
+      "Titulo": "teste",
+      "DataCriacao": "2022-05-05T11:46:07.7245842-03:00",
+      "DataConclusao": "2022-05-05T11:46:26.0136445-03:00",
+      "prioridade": 2,
+      "Itens": [
+        {
+          "Titulo": "1",
+          "Concluido": true
+        },
+        {
+          "Titulo": "2",
+          "Concluido": false
+        }
+      ],
+      "Numero": 1
+    }
+  ]
+}

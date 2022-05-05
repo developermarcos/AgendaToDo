@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace Infra.ToDo.Compartilhado.Serializador
 {
-    public class SerializadoEmJson<T> : ISerializador<T>
+    public class SerializadoEmJson<T> : ISerializadorGenerico<T>
     {
         private readonly string caminhoArquivo = @"C:\temp\tarefa.bin";
 

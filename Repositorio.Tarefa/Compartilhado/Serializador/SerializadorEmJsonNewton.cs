@@ -6,7 +6,7 @@ using Dominio.ToDo;
 
 namespace Infra.ToDo.Compartilhado.Serializador
 {
-    public class SerializadorEmJsonNewton<T> : ISerializador<T>
+    public class SerializadorEmJsonNewton<T> : ISerializadorGenerico<T>
     {
         private readonly string caminhoArquivo;
 
